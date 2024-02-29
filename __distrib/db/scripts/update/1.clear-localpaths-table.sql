@@ -1,0 +1,1 @@
+delete from MESSAGE_GENERATOR.LOCAL_PATHS;
