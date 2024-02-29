@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="ISO-8859-5"?>
+<ConfirmBod versionID="115.0" systemEnvironmentCode="Test">
+	<ApplicationArea>
+		<Sender>
+			<LogicalID>$response_sender</LogicalID>
+			<ComponentID>BS</ComponentID>
+			<TaskID/>
+			<ReferenceID/>
+			<ConfirmationCode>Never</ConfirmationCode>
+			<AuthorizationID/>
+		</Sender>
+		<CreationDateTime>2020-09-14T11:27:40+03:00</CreationDateTime>
+		<Signature/>
+		<BODId>$uuid</BODId>
+		<UserArea>
+			<Group ID="SB">
+				<Property name="Attribute1" value="ConfirmBOD"/>
+				<Property name="Attribute2"/>
+				<Property name="Attribute3"/>
+				<Property name="Attribute4"/>
+				<Property name="Attribute5" />
+			</Group>
+			<Group ID="Core">
+				<Property name="RecipientLogicalID" value="$response_recipient"/>
+				<Property name="Priority" value="250"/>
+				<Property name="MessageType" value="NTF"/>
+			</Group>
+			<Group ID="KPO">
+				<Property name="kpoGUIDClassInst"/>
+				<Property name="kpoCurrentVer"/>
+				<Property name="kpoPreviousVer"/>
+			</Group>
+		</UserArea>
+	</ApplicationArea>
+	<DataArea>
+		<Confirm/>
+		<BOD>
+			<OriginalApplicationArea>
+				<Sender>
+					<LogicalID>$request_recipient</LogicalID>
+					<ComponentID/>
+					<TaskID/>
+					<ReferenceID/>
+					<ConfirmationCode>Always</ConfirmationCode>
+					<AuthorizationID/>
+				</Sender>
+				<CreationDateTime>2020-09-14T11:25:52+03:00</CreationDateTime>
+				<Signature/>
+				<BODId>$uuid</BODId>
+				<UserArea>
+					<Group ID="Core">
+						<Property name="RecipientLogicalID" value="$request_sender"/>
+						<Property name="Priority" value="255"/>
+						<Property name="MessageType" value="DOC"/>
+					</Group>
+					<Group ID="KPO">
+						<Property name="kpoGUIDClassInst" value=""/>
+						<Property name="kpoCurrentVer" value=""/>
+						<Property name="kpoPreviousVer" value=""/>
+					</Group>
+					<Group ID="SB">
+						<Property name="Attribute1" value="НС9"/>
+						<Property name="Attribute2" value=""/>
+						<Property name="Attribute3" value=""/>
+						<Property name="Attribute4" value=""/>
+						<Property name="Attribute5" value=""/>
+					</Group>
+				</UserArea>
+			</OriginalApplicationArea>
+			<Description/>
+			<Note/>
+			<BODSuccessMessage>
+				<WarningProcessMessage>
+					<ID>1</ID>
+					<Description>XML message successfully processed.</Description>
+				</WarningProcessMessage>
+			</BODSuccessMessage>
+		</BOD>
+		<ReceivedDocs>
+			<docGUID>$uuid</docGUID>
+		</ReceivedDocs>
+	</DataArea>
+</ConfirmBod>

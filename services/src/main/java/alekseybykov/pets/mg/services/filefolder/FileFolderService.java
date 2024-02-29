@@ -1,0 +1,20 @@
+package alekseybykov.pets.mg.services.filefolder;
+
+import alekseybykov.pets.mg.core.businessobjects.TransportFolder;
+import org.jetbrains.annotations.NotNull;
+
+import java.io.File;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * @author bykov.alexey
+ * @since 21.02.2024
+ */
+public interface FileFolderService {
+
+	@NotNull
+	List<TransportFolder> findAllSubFolders(@NotNull String rootPath);
+
+	void sendFilesToTransportFolder(Map<String, File> files, TransportFolder transportFolder);
+}
