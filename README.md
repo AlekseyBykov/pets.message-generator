@@ -140,7 +140,7 @@ The SQL log is available on the corresponding tab.
 
 ![](gui/src/main/resources/images/sql-log.png)
 
-Log viewer is available on the <b>Server log</b> tab. The viewer reads the log in the reverse direction and shows 
+Log viewer is available on the <i>Server log</i> tab. The viewer reads the log in the reverse direction and shows 
 the last 6 KB of log and automatically updated every 4 seconds.
 
 ![](gui/src/main/resources/images/log-viewer.png)
