@@ -1,6 +1,10 @@
 MessageGenerator: Java desktop app example
 --
 <h4>General description</h4>
+
+<i>Note: Here briefly described an example of how the application works, layout, etc. without business details. 
+"OeBS", "import and export", "TFF", "OAGIS" - none of this matters here. All of that can be adapted to a specific business case.</i>
+
 The application shows some common approaches of building desktop Swing applications with using Spring framework:
 
 <ul>
@@ -57,9 +61,6 @@ The __distrib contains the following directories.
 </ul>
 
 <h4>Example</h4>
-<i>Note: Here briefly described an example of how the application works, layouting, etc. is  without business details. "OeBS", "import and export", "TFF" - none of this matters here.
-All of that can be adapted to a specific business case.</i>
-
 The initial application window looks as shown below. 
 
 ![](gui/src/main/resources/images/initial-window.png)
@@ -114,7 +115,7 @@ Then it will be transformed to:
 Consider the export. XML file can be selected on the <i>Exchange with OeBS - Export to OeBS</i> tab, by using the <i>Select TFF</i> button.
 These files will be preprocessed and sent to the transport directory.
 
-![](gui/src/main/resources/images/exported-xml.png)
+![](gui/src/main/resources/images/export-to-oebs.png)
 
 The path to the transport directory is specified through the administration menu.
 
@@ -127,5 +128,19 @@ The resulting file can be viewed in the table as BLOB content.
 Let's look at how the import is performed. For that, go to the <i>Exchange with OeBS - Import from OeBS</i> tab. 
 Next, select the document and its attachments.
 
+![](gui/src/main/resources/images/import-from-oebs.png)
+
+The data of the generated attachment can be viewed in the attachment table.
+
 ![](gui/src/main/resources/images/import-from-oebs-details.png)
 
+Generated messages can be viewed in different encodings (UTF-8, Windows-1251, ISO-8859-5).
+
+The SQL log is available on the corresponding tab.
+
+![](gui/src/main/resources/images/sql-log.png)
+
+Log viewer is available on the <b>Server log</b> tab. The viewer reads the log in the reverse direction and shows 
+the last 6 KB of log and automatically updated every 4 seconds.
+
+![](gui/src/main/resources/images/log-viewer.png)
