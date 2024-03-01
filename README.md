@@ -1,7 +1,7 @@
 MessageGenerator: Java desktop app example
 --
 <h4>General description</h4>
-The application shows the possibilities of building desktop Swing applications with using Spring framework:
+The application shows some common approaches of building desktop Swing applications with using Spring framework:
 
 <ul>
     <li>
@@ -57,8 +57,10 @@ The __distrib contains the following directories.
 </ul>
 
 <h4>Example</h4>
+<i>Note: Here briefly described an example of how the application works, layouting, etc. is  without business details. "OeBS", "import and export", "TFF" - none of this matters here.
+All of that can be adapted to a specific business case.</i>
 
-The initial application window looks as shown below.
+The initial application window looks as shown below. 
 
 ![](gui/src/main/resources/images/initial-window.png)
 
@@ -110,7 +112,7 @@ Then it will be transformed to:
 ```
 
 Consider the export. XML file can be selected on the <i>Exchange with OeBS - Export to OeBS</i> tab, by using the <i>Select TFF</i> button.
-These files will be preprocessed and sent to the transport directory as [OAGIS](https://schemas.liquid-technologies.com/OAGIS/8/).
+These files will be preprocessed and sent to the transport directory.
 
 ![](gui/src/main/resources/images/exported-xml.png)
 
@@ -118,6 +120,12 @@ The path to the transport directory is specified through the administration menu
 
 ![](gui/src/main/resources/images/local-paths.png)
 
-The resulting OAGIS file can be viewed in the table as BLOB content.
+The resulting file can be viewed in the table as BLOB content.
 
 ![](gui/src/main/resources/images/export-to-oebs-details.png)
+
+Let's look at how the import is performed. For that, go to the <i>Exchange with OeBS - Import from OeBS</i> tab. 
+Next, select the document and its attachments.
+
+![](gui/src/main/resources/images/import-from-oebs-details.png)
+
