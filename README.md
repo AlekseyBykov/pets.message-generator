@@ -55,3 +55,69 @@ The __distrib contains the following directories.
     <li><b>temp</b> - the service directory where archives are unpacked when generating attachments. The content can and should be deleted periodically.</li>
     <li><b>logs</b> - the directory contains the application's operation log. Logs are rotated by size and date. Similarly, it is advisable to delete the content.</li>
 </ul>
+
+<h4>Example</h4>
+
+The initial application window looks as shown below.
+
+![](gui/src/main/resources/images/initial-window.png)
+
+Documents are added to the database tables. It is necessary to select the configuration that determines the connection to the stand.
+The list of configurations is available in the menu <b>Admin</b> - <b>Configs</b>, the current active configuration is marked
+in the <b>active</b> field. All the queries, messages and displayed data will be presented according to the selected configs.
+If there is a need to connect to another database, then should specify a different configuration by editing the record,
+or add a new one with an activity sign.
+
+![](gui/src/main/resources/images/current-db-connection.png)
+
+XML messages contains the templates <i>$uuid</i> and <i>$doc_uuid</i>:
+<ul>
+    <li><i>$uuid</i> - to generate random GUIDs;</li>
+    <li><i>$doc_uuid</i> - to generate a random GUID that will be inserted into both the xml tag and the DOC_GUID field of the TB_MESSAGE_BIG_ATTRIBUTES table.
+                           By this way uploaded XML linked with the attachment (for example, the value of the docGuid document tag will match the value of the 
+                           DOC_GUID field in the TB_MESSAGE_BIG_ATTRIBUTES table).
+    </li>
+</ul>
+
+If only the template <i>$uuid</i> is specified in the messages, or the message is loaded without templates, then in the ATT_GUID and
+DOC_GUID fields of the table TB_MESSAGE_BIG_ATTRIBUTES will be set random values.
+
+For example, if the following documents are selected:
+
+```xml
+<document>
+	<docDuid>$doc_uuid</docDuid>
+	<guid>$uuid</guid>
+</document>
+```
+```xml
+<attachment>
+	<docDuid>$doc_uuid</docDuid>
+</attachment>
+```
+Then it will be transformed to:
+
+```xml
+<document>
+    <docDuid>55AB878E-1049-48A2-B32C-D937E1CD658B</docDuid>
+    <guid>67C40B04-B451-4766-9324-CFC92C8D21F8</guid>
+</document>
+```
+```xml
+<attachment>
+	<docDuid>55AB878E-1049-48A2-B32C-D937E1CD658B</docDuid>
+</attachment>
+```
+
+Consider the export. XML file can be selected on the <i>Exchange with OeBS - Export to OeBS</i> tab, by using the <i>Select TFF</i> button.
+These files will be preprocessed and sent to the transport directory as [OAGIS](https://schemas.liquid-technologies.com/OAGIS/8/).
+
+![](gui/src/main/resources/images/exported-xml.png)
+
+The path to the transport directory is specified through the administration menu.
+
+![](gui/src/main/resources/images/local-paths.png)
+
+The resulting OAGIS file can be viewed in the table as BLOB content.
+
+![](gui/src/main/resources/images/export-to-oebs-details.png)
