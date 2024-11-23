@@ -10,12 +10,9 @@ import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author bykov.alexey
- * @since 25.06.2021
- */
 @Component
-public class DBConnectionConfigsTableModel extends AbstractTableModel implements TableModel {
+public class DBConnectionConfigsTableModel
+		extends AbstractTableModel implements TableModel {
 
 	private static final String[] COLUMN_NAMES = {
 			"active", "name", "url", "driverClassName", "user", "password"
@@ -75,7 +72,10 @@ public class DBConnectionConfigsTableModel extends AbstractTableModel implements
 		fireTableDataChanged();
 	}
 
-	public void updateConfig(OracleConnection udatedConfig, int rowIndex) {
+	public void updateConfig(
+			OracleConnection udatedConfig,
+			int rowIndex
+	) {
 		if (udatedConfig.isActive()) {
 			OracleConnectionSwitcher.getInstance().deactivateConfigs();
 			OracleConnectionSwitcher.getInstance().setActiveConnection(udatedConfig);

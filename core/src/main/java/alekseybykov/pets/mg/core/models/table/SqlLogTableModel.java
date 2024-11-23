@@ -8,16 +8,16 @@ import org.springframework.stereotype.Component;
 import javax.swing.table.AbstractTableModel;
 import java.util.List;
 
-/**
- * @author bykov.alexey
- * @since 26.06.2022
- */
 @Component
 public class SqlLogTableModel extends AbstractTableModel implements TableModel {
 
 	private static final String[] COLUMN_NAMES = {
-			"идентификатор запроса", "когда выполнился впервые", "кем выполнен", "в какой схеме выполнен",
-			"текст выполненного запроса", "сколько раз выполнился всего"
+			"идентификатор запроса",
+			"когда выполнился впервые",
+			"кем выполнен",
+			"в какой схеме выполнен",
+			"текст выполненного запроса",
+			"сколько раз выполнился всего"
 	};
 
 	private List<PageableData> data;

@@ -8,10 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * @author bykov.alexey
- * @since 26.06.2022
- */
 @Service
 public class SqlLogServiceImpl implements SqlLogService {
 
@@ -29,7 +25,11 @@ public class SqlLogServiceImpl implements SqlLogService {
 	}
 
 	@Override
-	public List<PageableData> findAllRowsBySqlSubstring(String sqlSubstring, int startRownum, int endRownum) {
+	public List<PageableData> findAllRowsBySqlSubstring(
+			String sqlSubstring,
+			int startRownum,
+			int endRownum
+	) {
 		return dao.findAllRowsBySqlSubstring(sqlSubstring, startRownum, endRownum);
 	}
 }

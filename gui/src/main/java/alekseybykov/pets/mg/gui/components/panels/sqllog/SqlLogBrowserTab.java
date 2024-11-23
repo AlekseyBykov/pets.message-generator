@@ -7,10 +7,6 @@ import javax.annotation.PostConstruct;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * @author bykov.alexey
- * @since 24.06.2022
- */
 @Component
 public class SqlLogBrowserTab extends JPanel {
 

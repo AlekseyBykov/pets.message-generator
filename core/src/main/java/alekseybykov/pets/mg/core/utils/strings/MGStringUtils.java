@@ -2,13 +2,13 @@ package alekseybykov.pets.mg.core.utils.strings;
 
 import org.apache.commons.lang3.StringUtils;
 
-/**
- * @author bykov.alexey
- * @since 18.05.2021
- */
 public class MGStringUtils {
 
-	public static String splitStringBySeparator(String string, String separator, int part) {
+	public static String splitStringBySeparator(
+			String string,
+			String separator,
+			int part
+	) {
 		String[] result = string.split(separator);
 		if (result.length != 2) {
 			return StringUtils.EMPTY;

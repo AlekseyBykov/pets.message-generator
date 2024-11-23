@@ -8,10 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.nio.charset.Charset;
 
-/**
- * @author bykov.alexey
- * @since 15.04.2021
- */
 @Service
 public class TBMessageServiceImpl implements TBMessageService {
 

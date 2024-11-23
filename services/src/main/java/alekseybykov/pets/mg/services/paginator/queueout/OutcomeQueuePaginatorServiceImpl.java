@@ -9,10 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * @author bykov.alexey
- * @since 04.07.2021
- */
 @Service
 @Qualifier("OutcomeQueuePaginatorService")
 public class OutcomeQueuePaginatorServiceImpl implements PageableDataService {

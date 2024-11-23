@@ -12,10 +12,6 @@ import java.io.File;
 import java.nio.charset.StandardCharsets;
 import java.util.Objects;
 
-/**
- * @author bykov.alexey
- * @since 25.02.2024
- */
 @Service
 public class H2UpdaterServiceImpl implements H2UpdaterService {
 

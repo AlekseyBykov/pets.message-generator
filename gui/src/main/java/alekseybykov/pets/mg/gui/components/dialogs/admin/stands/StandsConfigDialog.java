@@ -19,10 +19,6 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
-/**
- * @author bykov.alexey
- * @since 25.06.2021
- */
 @Component
 public class StandsConfigDialog extends JDialog {
 

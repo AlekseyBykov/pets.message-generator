@@ -7,15 +7,13 @@ import org.springframework.stereotype.Component;
 
 import javax.swing.table.AbstractTableModel;
 
-/**
- * @author bykov.alexey
- * @since 16.02.2024
- */
 @Component
 public class OAGISFileListTableModel extends AbstractTableModel {
 
 	private static final String[] COLUMN_NAMES = {
-		"Имя файла OAGIS (редактируемое поле)", "Путь к файлу", "Размер файла (байт)"
+			"Имя файла OAGIS (редактируемое поле)",
+			"Путь к файлу",
+			"Размер файла (байт)"
 	};
 
 	@Getter

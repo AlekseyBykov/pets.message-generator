@@ -7,15 +7,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-/**
- * @author bykov.alexey
- * @since 29.02.2024
- */
 public class TicketGeneratorsPool {
 
 	private final Map<TicketType, TicketGenerator> GENERATORS_POOL = new HashMap<TicketType, TicketGenerator>() {{
 		put(TicketType.CONFIRM_BOD, new ConfirmBodGenerator());
-		// todo добавить остальные
+		// todo add others
 	}};
 
 	public TicketGenerator lookup(TicketType type) {

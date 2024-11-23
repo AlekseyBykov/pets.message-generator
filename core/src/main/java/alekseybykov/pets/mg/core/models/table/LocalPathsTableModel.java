@@ -8,12 +8,9 @@ import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author bykov.alexey
- * @since 26.12.2022
- */
 @Component
-public class LocalPathsTableModel extends AbstractTableModel implements TableModel {
+public class LocalPathsTableModel
+		extends AbstractTableModel implements TableModel {
 
 	private static final String[] COLUMN_NAMES = {
 		"идентификатор", "абсолютный путь"
@@ -66,14 +63,6 @@ public class LocalPathsTableModel extends AbstractTableModel implements TableMod
 		this.data = data;
 	}
 
-	/**
-	 * Метод вызывается из вью и обновляет модель (данные).
-	 * После обновления данных, вызывается метод {@link super#fireTableDataChanged},
-	 * которые обновляет вью и приводит к перерисовке таблицы.
-	 *
-	 * @param updatedLocalPath - обновленные данные.
-	 * @param rowIndex - строка, в которой содержатся обновленные данные.
-	 */
 	public void updateModel(LocalPath updatedLocalPath, int rowIndex) {
 		LocalPath currentLocalPath = ((LocalPath) data.get(rowIndex));
 		currentLocalPath.setPath(updatedLocalPath.getPath());

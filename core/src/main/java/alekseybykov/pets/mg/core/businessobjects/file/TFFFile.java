@@ -5,10 +5,6 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-/**
- * @author bykov.alexey
- * @since 16.02.2024
- */
 @Getter
 @Setter
 @EqualsAndHashCode

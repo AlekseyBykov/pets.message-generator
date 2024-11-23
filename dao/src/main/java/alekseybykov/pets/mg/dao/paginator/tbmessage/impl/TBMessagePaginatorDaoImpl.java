@@ -16,10 +16,6 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author bykov.alexey
- * @since 04.07.2021
- */
 @Repository
 public class TBMessagePaginatorDaoImpl implements TBMessagePaginatorDao {
 
@@ -40,9 +36,16 @@ public class TBMessagePaginatorDaoImpl implements TBMessagePaginatorDao {
 		              "order by rs.row_num\n\n";
 		try {
 			JdbcTemplate jdbcTemplate = OracleConnectionManager.getInstance().getJdbcTemplate();
-			rows = jdbcTemplate.query(sqlText, new Object[] {startRownum, endRownum}, rowMapper);
+			rows = jdbcTemplate.query(
+					sqlText,
+					new Object[] {startRownum, endRownum},
+					rowMapper
+			);
 		} catch (DataAccessException e) {
-			logger.error("Не удалось извлечь данные TB_MESSAGE. SQL запрос: " + sqlText + " Исключение: ", e);
+			logger.error(
+					"Не удалось извлечь данные TB_MESSAGE. SQL запрос: " + sqlText +
+							" Исключение: ", e
+			);
 		}
 		return rows;
 	}
@@ -56,7 +59,9 @@ public class TBMessagePaginatorDaoImpl implements TBMessagePaginatorDao {
 			JdbcTemplate jdbcTemplate = OracleConnectionManager.getInstance().getJdbcTemplate();
 			rowsCount = jdbcTemplate.queryForObject(sqlText, Integer.class);
 		} catch (DataAccessException e) {
-			logger.error("Не удалось найти число строк таблицы TB_MESSAGE. SQL запрос: " + sqlText + " Исключение: ", e);
+			logger.error(
+					"Не удалось найти число строк таблицы TB_MESSAGE. SQL запрос: " + sqlText +
+							" Исключение: ", e);
 		}
 		return rowsCount;
 	}

@@ -11,15 +11,11 @@ import javax.annotation.PostConstruct;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * @author bykov.alexey
- * @since 28.02.2024
- */
 @Component
 public class ChooseLogFileButton extends JButton {
 
 	@Autowired
-	private ChooseLogFileButtonClickListener chooseLogFileButtonClickListener;
+	private ChooseLogFileButtonClickListener listener;
 
 	@PostConstruct
 	private void postConstruct() {
@@ -28,6 +24,6 @@ public class ChooseLogFileButton extends JButton {
 		setIcon(GUIHelper.scaleImageIcon(IconPaths.CHOOSE_XML_BTN_ICON.getPath(), 20, 20));
 		setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-		addActionListener(chooseLogFileButtonClickListener);
+		addActionListener(listener);
 	}
 }

@@ -6,10 +6,6 @@ import alekseybykov.pets.mg.services.tbbigattr.TBMessageBigAttributesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**
- * @author bykov.alexey
- * @since 15.04.2021
- */
 @Service
 public class TBMessageBigAttributesServiceImpl implements TBMessageBigAttributesService {
 

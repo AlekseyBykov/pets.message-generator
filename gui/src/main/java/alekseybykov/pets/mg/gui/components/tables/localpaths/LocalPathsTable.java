@@ -10,10 +10,6 @@ import javax.swing.*;
 import javax.swing.table.TableCellRenderer;
 import java.awt.*;
 
-/**
- * @author bykov.alexey
- * @since 26.12.2022
- */
 @Component
 public class LocalPathsTable extends JTable {
 
@@ -32,7 +28,11 @@ public class LocalPathsTable extends JTable {
 	}
 
 	@Override
-	public java.awt.Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
+	public java.awt.Component prepareRenderer(
+			TableCellRenderer renderer,
+			int row,
+			int column
+	) {
 		java.awt.Component component = super.prepareRenderer(renderer, row, column);
 
 		if (isRowSelected(row)) {

@@ -7,10 +7,6 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * @author bykov.alexey
- * @since 29.04.2022
- */
 @Component
 public abstract class ChooseFileButtonClickListener implements ActionListener {
 

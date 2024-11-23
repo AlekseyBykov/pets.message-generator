@@ -13,10 +13,6 @@ import org.xml.sax.helpers.DefaultHandler;
 
 import java.io.StringReader;
 
-/**
- * @author bykov.alexey
- * @since 26.02.2024
- */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class OAGISMessageHandler extends DefaultHandler implements MessageHandler {
 
@@ -48,7 +44,12 @@ public class OAGISMessageHandler extends DefaultHandler implements MessageHandle
 	}
 
 	@Override
-	public void startElement(String uri, String localName, String qName, Attributes attributes) {
+	public void startElement(
+			String uri,
+			String localName,
+			String qName,
+			Attributes attributes
+	) {
 		if (StringUtils.equals(qName, "ApplicationArea")) {
 			inApplicationAreaTag = true;
 			oagisMessage.buildApplicationArea();
@@ -78,9 +79,9 @@ public class OAGISMessageHandler extends DefaultHandler implements MessageHandle
 		}
 
 		if (StringUtils.equals(qName, "Property")) {
-			/* Тег <Property name="RecipientLogicalID" value="..."/>
-			встречается два раза - в ApplicationArea и OriginalApplicationArea. */
-			if (inCoreGroupTag && inUserAreaTag && inApplicationAreaTag) {
+			if (inCoreGroupTag
+					&& inUserAreaTag
+					&& inApplicationAreaTag) {
 				val name = attributes.getValue("name");
 				if (StringUtils.equals(name, "RecipientLogicalID")) {
 					val value = attributes.getValue("value");
@@ -91,7 +92,11 @@ public class OAGISMessageHandler extends DefaultHandler implements MessageHandle
 	}
 
 	@Override
-	public void endElement(String uri, String localName, String qName) {
+	public void endElement(
+			String uri,
+			String localName,
+			String qName
+	) {
 		if (StringUtils.equals(qName, "LogicalID")) {
 			if (inApplicationAreaTag && inSenderTag) {
 				oagisMessage.getApplicationArea().setSenderLogicalID(senderLogicalID.toString());
@@ -117,9 +122,18 @@ public class OAGISMessageHandler extends DefaultHandler implements MessageHandle
 	}
 
 	@Override
-	public void characters(char[] ch, int start, int length) {
+	public void characters(
+			char[] ch,
+			int start,
+			int length
+	) {
 		if (inApplicationAreaTag && inSenderTag && inSenderLogicalID) {
-			SAXEventUtils.processCharactersEvent(senderLogicalID, ch, start, length);
+			SAXEventUtils.processCharactersEvent(
+					senderLogicalID,
+					ch,
+					start,
+					length
+			);
 		}
 	}
 }

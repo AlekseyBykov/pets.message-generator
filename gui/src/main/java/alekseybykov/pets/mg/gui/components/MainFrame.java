@@ -43,10 +43,6 @@ import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 import java.awt.*;
 import java.util.List;
 
-/**
- * @author bykov.alexey
- * @since 29.04.2021
- */
 @Component
 public class MainFrame extends JFrame {
 
@@ -132,7 +128,11 @@ public class MainFrame extends JFrame {
 		setLayout(new BorderLayout());
 
 		JTabbedPane tabbedPane = buildTabbedPane();
-		final JSplitPane splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, tabbedPane, logPanel);
+		final JSplitPane splitPane = new JSplitPane(
+				JSplitPane.VERTICAL_SPLIT,
+				tabbedPane,
+				logPanel
+		);
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				splitPane.setOneTouchExpandable(true);
@@ -161,46 +161,46 @@ public class MainFrame extends JFrame {
 	}
 
 	private JTabbedPane buildTabbedPane() {
-		JTabbedPane applicationTabs = new JTabbedPane();
+		JTabbedPane tabs = new JTabbedPane();
 
-		applicationTabs.add(HtmlWrapper.wrapText(TabTitles.OEBS_EXCHANGE_TAB.getTitle()), buildOeBSExchangeTabs());
-		applicationTabs.setTabComponentAt(0, GUIHelper.buildLabelWithImage(TabTitles.OEBS_EXCHANGE_TAB.getTitle(),
+		tabs.add(HtmlWrapper.wrapText(TabTitles.OEBS_EXCHANGE_TAB.getTitle()), buildOeBSExchangeTabs());
+		tabs.setTabComponentAt(0, GUIHelper.buildLabelWithImage(TabTitles.OEBS_EXCHANGE_TAB.getTitle(),
 				IconPaths.TAB_ICON.getPath(), 12, 12));
 
-		applicationTabs.add(HtmlWrapper.wrapText(TabTitles.PACKET_QUEUE_TAB.getTitle()), buildPacketQueueTabs());
-		applicationTabs.setTabComponentAt(1, GUIHelper.buildLabelWithImage(TabTitles.PACKET_QUEUE_TAB.getTitle(),
+		tabs.add(HtmlWrapper.wrapText(TabTitles.PACKET_QUEUE_TAB.getTitle()), buildPacketQueueTabs());
+		tabs.setTabComponentAt(1, GUIHelper.buildLabelWithImage(TabTitles.PACKET_QUEUE_TAB.getTitle(),
 				IconPaths.TAB_ICON.getPath(), 12, 12));
 
-		applicationTabs.add(HtmlWrapper.wrapText("SQL лог"), sqlMonitoringTab);
-		applicationTabs.setTabComponentAt(2, GUIHelper.buildLabelWithImage("SQL лог", IconPaths.TAB_ICON.getPath(), 12, 12));
+		tabs.add(HtmlWrapper.wrapText("SQL лог"), sqlMonitoringTab);
+		tabs.setTabComponentAt(2, GUIHelper.buildLabelWithImage("SQL лог", IconPaths.TAB_ICON.getPath(), 12, 12));
 
-		applicationTabs.add(HtmlWrapper.wrapText("Серверный лог"), serverLoggerTab);
-		applicationTabs.setTabComponentAt(3, GUIHelper.buildLabelWithImage("Серверный лог", IconPaths.TAB_ICON.getPath(), 12, 12));
+		tabs.add(HtmlWrapper.wrapText("Серверный лог"), serverLoggerTab);
+		tabs.setTabComponentAt(3, GUIHelper.buildLabelWithImage("Серверный лог", IconPaths.TAB_ICON.getPath(), 12, 12));
 
-		applicationTabs.setBackground(null);
-		applicationTabs.setFocusable(false);
+		tabs.setBackground(null);
+		tabs.setFocusable(false);
 
-		return applicationTabs;
+		return tabs;
 	}
 
 	private JTabbedPane buildPacketQueueTabs() {
-		JTabbedPane packetQueueTabs = new JTabbedPane();
-		packetQueueTabs.add(HtmlWrapper.wrapText(TabTitles.INCOME_QUEUE_TAB.getTitle()), incomeQueueBrowserTab);
-		packetQueueTabs.add(HtmlWrapper.wrapText(TabTitles.OUTCOME_QUEUE_TAB.getTitle()), outcomeQueueBrowserTab);
-		packetQueueTabs.setBackground(null);
-		packetQueueTabs.setFocusable(false);
-		return packetQueueTabs;
+		JTabbedPane tabs = new JTabbedPane();
+		tabs.add(HtmlWrapper.wrapText(TabTitles.INCOME_QUEUE_TAB.getTitle()), incomeQueueBrowserTab);
+		tabs.add(HtmlWrapper.wrapText(TabTitles.OUTCOME_QUEUE_TAB.getTitle()), outcomeQueueBrowserTab);
+		tabs.setBackground(null);
+		tabs.setFocusable(false);
+		return tabs;
 	}
 
 	private JTabbedPane buildOeBSExchangeTabs() {
-		JTabbedPane oebsExchangeTabs = new JTabbedPane();
-		oebsExchangeTabs.add(HtmlWrapper.wrapText(TabTitles.OEBS_EXPORT_TAB.getTitle()), oebsExportTab);
-		oebsExchangeTabs.add(HtmlWrapper.wrapText(TabTitles.OEBS_IMPORT_TAB.getTitle()), oebsImportTab);
-		oebsExchangeTabs.add(HtmlWrapper.wrapText(TabTitles.TB_MESSAGE_TAB_PANEL.getTitle()), tbMessageBrowserTab);
-		oebsExchangeTabs.add(HtmlWrapper.wrapText(TabTitles.TB_MESSAGE_BIG_ATTRIBUTES_TAB_PANEL.getTitle()), tbMessageBigAttributesBrowserTab);
-		oebsExchangeTabs.setBackground(null);
-		oebsExchangeTabs.setFocusable(false);
-		return oebsExchangeTabs;
+		JTabbedPane tabs = new JTabbedPane();
+		tabs.add(HtmlWrapper.wrapText(TabTitles.OEBS_EXPORT_TAB.getTitle()), oebsExportTab);
+		tabs.add(HtmlWrapper.wrapText(TabTitles.OEBS_IMPORT_TAB.getTitle()), oebsImportTab);
+		tabs.add(HtmlWrapper.wrapText(TabTitles.TB_MESSAGE_TAB_PANEL.getTitle()), tbMessageBrowserTab);
+		tabs.add(HtmlWrapper.wrapText(TabTitles.TB_MESSAGE_BIG_ATTRIBUTES_TAB_PANEL.getTitle()), tbMessageBigAttributesBrowserTab);
+		tabs.setBackground(null);
+		tabs.setFocusable(false);
+		return tabs;
 	}
 
 	private void setApplicationIcon() {
@@ -211,40 +211,23 @@ public class MainFrame extends JFrame {
 		h2UpdaterService.applyUpdates();
 	}
 
-	/**
-	 * Метод вынесен из {@link SwingWorker} в EDT, поскольку до выполнения запросов к БД H2
-	 * необходимо создать ее в {@link H2ConnectionManager#connect}, если она не была создана ранее.
-	 * (Вообще, следует реализовать более гибкий функционал подключения и инициализации/обновления БД H2).
-	 */
 	private void loadDBConnectionsConfigs() {
 		List<PageableData> configs = dbConnectionService.getAllConfigs();
 		dbConnectionConfigsTableModel.setData(configs);
 		OracleConnectionSwitcher.getInstance().setConfigs(configs);
 	}
-	/**
-	 * Метод вынесен из {@link SwingWorker} в EDT, поскольку до выполнения запросов к БД H2
-	 * необходимо создать ее в {@link H2ConnectionManager#connect}, если она не была создана ранее.
-	 * (Вообще, следует реализовать более гибкий функционал подключения и инициализации/обновления БД H2).
-	 */
+
 	private void loadLocalPaths() {
 		List<PageableData> localPaths = localPathService.getAllLocalPaths();
 		localPathsTableModel.setData(localPaths);
 	}
-	/**
-	 * Метод вынесен из {@link SwingWorker} в EDT, поскольку до выполнения запросов к БД H2
-	 * необходимо создать ее в {@link H2ConnectionManager#connect}, если она не была создана ранее.
-	 * (Вообще, следует реализовать более гибкий функционал подключения и инициализации/обновления БД H2).
-	 */
+
 	private void loadTransportFolders() {
 		val rootPath = localPathService.getLocalPathValue("TRANSPORT_HOME");
 		List<TransportFolder> transportFolders = fileFolderService.findAllSubFolders(rootPath);
 		transportFolderComboBoxModel.setData(transportFolders);
 	}
-	/**
-	 * Метод вынесен из {@link SwingWorker} в EDT, поскольку до выполнения запросов к БД H2
-	 * необходимо создать ее в {@link H2ConnectionManager#connect}, если она не была создана ранее.
-	 * (Вообще, следует реализовать более гибкий функционал подключения и инициализации/обновления БД H2).
-	 */
+
 	private void loadGuiThemes() {
 		List<PageableData> guiThemes = guiThemeService.getAllThemes();
 		guiThemeTableModel.setData(guiThemes);

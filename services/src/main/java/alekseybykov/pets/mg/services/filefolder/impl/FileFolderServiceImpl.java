@@ -18,10 +18,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @author bykov.alexey
- * @since 21.02.2024
- */
 @Component
 public class FileFolderServiceImpl implements FileFolderService {
 
@@ -39,7 +35,10 @@ public class FileFolderServiceImpl implements FileFolderService {
 	}
 
 	@Override
-	public void sendFilesToTransportFolder(Map<String, File> files, TransportFolder transportFolder) {
+	public void sendFilesToTransportFolder(
+			Map<String, File> files,
+			TransportFolder transportFolder
+	) {
 		for (Map.Entry<String, File> entry : files.entrySet()) {
 			String fileName = entry.getKey();
 			File file = entry.getValue();
@@ -77,7 +76,11 @@ public class FileFolderServiceImpl implements FileFolderService {
 	}
 
 	@SneakyThrows
-	private void copyFileToFolder(File file, String fileName, File folder) {
+	private void copyFileToFolder(
+			File file,
+			String fileName,
+			File folder
+	) {
 		val destination = folder.getAbsolutePath() + "/" + fileName;
 		try (InputStream in = new BufferedInputStream(new FileInputStream(file));
 		     OutputStream out = new BufferedOutputStream(new FileOutputStream(destination))) {

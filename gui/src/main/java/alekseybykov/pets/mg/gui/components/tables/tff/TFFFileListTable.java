@@ -8,10 +8,6 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import javax.swing.*;
 
-/**
- * @author bykov.alexey
- * @since 27.02.2024
- */
 @Component
 public class TFFFileListTable extends JTable {
 

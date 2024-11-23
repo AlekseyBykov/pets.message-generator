@@ -8,12 +8,9 @@ import org.springframework.stereotype.Component;
 import javax.swing.table.AbstractTableModel;
 import java.util.List;
 
-/**
- * @author bykov.alexey
- * @since 18.04.2021
- */
 @Component
-public class OutcomeQueueTableModel extends AbstractTableModel implements TableModel {
+public class OutcomeQueueTableModel
+		extends AbstractTableModel implements TableModel {
 
 	private static final String[] COLUMN_NAMES = {
 			"id", "url", "createdate", "seqnum", "sequencesize",

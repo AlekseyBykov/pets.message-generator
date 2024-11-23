@@ -18,10 +18,6 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
-/**
- * @author bykov.alexey
- * @since 18.03.2021
- */
 @Getter
 @Component
 public class TBMessageBigAttributesTablePanel extends JPanel {

@@ -2,10 +2,6 @@ package alekseybykov.pets.mg.dao.queuein;
 
 import alekseybykov.pets.mg.core.businessobjects.PageableData;
 
-/**
- * @author bykov.alexey
- * @since 04.07.2021
- */
 public interface IncomeQueueDao {
 
 	PageableData fetchRowById(int id);

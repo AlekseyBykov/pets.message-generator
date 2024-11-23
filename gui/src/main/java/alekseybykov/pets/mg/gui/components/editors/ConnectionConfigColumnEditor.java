@@ -7,10 +7,6 @@ import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
-/**
- * @author bykov.alexey
- * @since 29.06.2021
- */
 public class ConnectionConfigColumnEditor extends DefaultCellEditor implements ItemListener {
 
 	@Getter

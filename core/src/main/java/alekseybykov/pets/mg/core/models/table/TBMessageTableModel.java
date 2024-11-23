@@ -8,10 +8,6 @@ import org.springframework.stereotype.Component;
 import javax.swing.table.AbstractTableModel;
 import java.util.List;
 
-/**
- * @author bykov.alexey
- * @since 14.03.2021
- */
 @Component
 public class TBMessageTableModel extends AbstractTableModel implements TableModel {
 

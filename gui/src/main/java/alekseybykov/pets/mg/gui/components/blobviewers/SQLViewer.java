@@ -8,10 +8,6 @@ import javax.annotation.PostConstruct;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * @author bykov.alexey
- * @since 27.02.2024
- */
 @Component
 public class SQLViewer extends JTextPane {
 

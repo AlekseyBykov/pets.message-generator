@@ -5,13 +5,6 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-/**
- * Сообщение OAGIS. В отличие от {@link OAGISFile}, представляет
- * контент файла, разобранный парсером на составные блоки.
- *
- * @author bykov.alexey
- * @since 26.02.2024
- */
 @Data
 public class OAGISMessage {
 

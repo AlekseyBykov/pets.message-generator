@@ -7,15 +7,17 @@ import lombok.var;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.DocumentFilter;
 
-/**
- * @author bykov.alexey
- * @since 20.05.2021
- */
 public class GUIDFilter extends DocumentFilter {
 
 	@SneakyThrows
 	@Override
-	public void replace(FilterBypass fb, int i, int i1, String string, AttributeSet as) {
+	public void replace(
+			FilterBypass fb,
+			int i,
+			int i1,
+			String string,
+			AttributeSet as
+	) {
 		for (var n = string.length(); n > 0; n--) {
 			char c = string.charAt(n - 1);
 
@@ -28,13 +30,22 @@ public class GUIDFilter extends DocumentFilter {
 
 	@SneakyThrows
 	@Override
-	public void remove(FilterBypass fb, int i, int i1) {
+	public void remove(
+			FilterBypass fb,
+			int i,
+			int i1
+	) {
 		super.remove(fb, i, i1);
 	}
 
 	@SneakyThrows
 	@Override
-	public void insertString(FilterBypass fb, int i, String string, AttributeSet as) {
+	public void insertString(
+			FilterBypass fb,
+			int i,
+			String string,
+			AttributeSet as
+	) {
 		super.insertString(fb, i, string, as);
 	}
 }

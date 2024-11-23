@@ -18,10 +18,6 @@ import org.springframework.stereotype.Repository;
 import java.sql.Blob;
 import java.sql.ResultSet;
 
-/**
- * @author bykov.alexey
- * @since 18.04.2021
- */
 @Repository
 public class OutcomeQueueDaoImpl implements OutcomeQueueDao {
 
@@ -42,14 +38,15 @@ public class OutcomeQueueDaoImpl implements OutcomeQueueDao {
 			JdbcTemplate jdbcTemplate = OracleConnectionManager.getInstance().getJdbcTemplate();
 			row = jdbcTemplate.queryForObject(sqlText, new Object[] {id}, rowMapper);
 		} catch (DataAccessException e) {
-			logger.error("Не удалось найти запись таблицы QUEUE_PACKET_OUT по идентификатору " + id + ". SQL запрос: " + sqlText + " Исключение: ", e);
+			logger.error(
+					"Не удалось найти запись таблицы QUEUE_PACKET_OUT по идентификатору " + id +
+							". SQL запрос: " + sqlText +
+							" Исключение: ", e
+			);
 		}
 		return row;
 	}
 
-	/* queryForObject выдает исключение, когда результат null.
-	   (org.springframework.dao.EmptyResultDataAccessException: Incorrect result size: expected 1, actual 0)
-	   Используем ResultSetExtractor вместо него. */
 	@Override
 	public String fetchFileById(int id, String charsetName) {
 		val sqlText = "\nselect blobcontent from queue_packet_out where blobcontent is not null and id = ?\n\n";

@@ -9,10 +9,6 @@ import org.springframework.stereotype.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * @author bykov.alexey
- * @since 16.02.2024
- */
 @Component
 public class RemoveTFFItemClickListener implements ActionListener {
 

@@ -9,10 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * @author bykov.alexey
- * @since 25.02.2024
- */
 @Service
 public class GuiThemeServiceImpl implements GuiThemeService {
 

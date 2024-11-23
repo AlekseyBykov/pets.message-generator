@@ -17,10 +17,6 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * @author bykov.alexey
- * @since 29.04.2016
- */
 @Slf4j
 @Component
 public class OEBSImportButtonClickListener implements ActionListener {
@@ -44,8 +40,15 @@ public class OEBSImportButtonClickListener implements ActionListener {
 		OAGISFile oagisFile = oagisFileListTableModel.getOagisFile();
 		if (oagisFile == null) {
 			Object[] dialogOptions = {"Ок"};
-			JOptionPane.showOptionDialog(null, "Не выбран OAGIS файл", "Ошибка",
-					JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE, null, dialogOptions, null);
+			JOptionPane.showOptionDialog(null,
+					"Не выбран OAGIS файл",
+					"Ошибка",
+					JOptionPane.YES_NO_OPTION,
+					JOptionPane.ERROR_MESSAGE,
+					null,
+					dialogOptions,
+					null
+			);
 			log.error("Процесс генерации не был запущен, так как OAGIS файл не был выбран");
 			return;
 		}
@@ -60,7 +63,10 @@ public class OEBSImportButtonClickListener implements ActionListener {
 				uiLogger.log("<font color=\"#742765\"><b>[процесс генерации запущен]</b></font><br/><br/>");
 				Thread.sleep(Timeouts.GUI_PROGRESSBAR_TIMEOUT.getValue());
 
-				oebsImportService.importOagisFileWithAttachmentFiles(oagisFile, attachmentFileListTableModel.getAttachmentFiles());
+				oebsImportService.importOagisFileWithAttachmentFiles(
+						oagisFile,
+						attachmentFileListTableModel.getAttachmentFiles()
+				);
 				return true;
 			}
 

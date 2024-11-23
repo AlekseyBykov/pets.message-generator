@@ -15,10 +15,6 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author bykov.alexey
- * @since 26.06.2022
- */
 @Slf4j
 @Repository
 public class SqlLogPaginatorDaoImpl implements SqlLogPaginatorDao {
@@ -54,12 +50,6 @@ public class SqlLogPaginatorDaoImpl implements SqlLogPaginatorDao {
 		              "   rs.row_num >= ? and rs.row_num  <= ?\n" +
 		              "order by \n" +
 		              "   rs.row_num\n\n";
-
-		// todo за определенный период:
-//		v$sql t where to_date(first_load_time, 'yyyy/mm/dd hh24:mi:ss') >= to_date('2022/06/28', 'yyyy/mm/dd')
-//		and to_date(first_load_time, 'yyyy/mm/dd hh24:mi:ss') <= to_date('2022-06-29', 'yyyy/mm/dd')
-
-
 		try {
 			JdbcTemplate jdbcTemplate = OracleConnectionManager.getInstance().getJdbcTemplate();
 			rows = jdbcTemplate.query(sqlText, new Object[] {startRownum, endRownum}, rowMapper);

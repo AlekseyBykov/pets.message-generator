@@ -9,11 +9,8 @@ import org.xml.sax.InputSource;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.StringReader;
 
-/**
- * @author bykov.alexey
- * @since 09.12.2020
- */
 public class DomParser {
+
 	public static String parse(String xml) throws Exception {
 		InputSource inputSource = new InputSource(new StringReader(xml));
 		Element node = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(inputSource).getDocumentElement();
@@ -22,6 +19,7 @@ public class DomParser {
 		LSSerializer lsSerializer = domImplementationLS.createLSSerializer();
 		lsSerializer.getDomConfig().setParameter("format-pretty-print", Boolean.TRUE);
 		lsSerializer.getDomConfig().setParameter("xml-declaration", xml.startsWith("<?xml"));
+
 		return lsSerializer.writeToString(node);
 	}
 }

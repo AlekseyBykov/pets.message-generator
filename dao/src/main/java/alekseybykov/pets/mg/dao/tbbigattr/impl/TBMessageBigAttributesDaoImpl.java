@@ -15,10 +15,6 @@ import org.springframework.stereotype.Repository;
 
 import java.io.UnsupportedEncodingException;
 
-/**
- * @author bykov.alexey
- * @since 15.04.2021
- */
 @Slf4j
 @Repository
 public class TBMessageBigAttributesDaoImpl implements TBMessageBigAttributesDao {
@@ -35,9 +31,17 @@ public class TBMessageBigAttributesDaoImpl implements TBMessageBigAttributesDao 
 		PageableData row = null;
 		try {
 			JdbcTemplate jdbcTemplate = OracleConnectionManager.getInstance().getJdbcTemplate();
-			row = jdbcTemplate.queryForObject(sqlText, new Object[] {id}, rowMapper);
+			row = jdbcTemplate.queryForObject(
+					sqlText,
+					new Object[] {id},
+					rowMapper
+			);
 		} catch (DataAccessException e) {
-			log.error("Не удалось найти запись таблицы TB_MESSAGE_BIG_ATTRIBUTES по идентификатору " + id + ". SQL запрос: " + sqlText + " Исключение: ", e);
+			log.error(
+					"Не удалось найти запись таблицы TB_MESSAGE_BIG_ATTRIBUTES по идентификатору " + id +
+							". SQL запрос: " + sqlText +
+							" Исключение: ", e
+			);
 		} finally {
 			OracleConnectionManager.getInstance().closeConnection();
 		}
@@ -53,22 +57,22 @@ public class TBMessageBigAttributesDaoImpl implements TBMessageBigAttributesDao 
 		try {
 			JdbcTemplate jdbcTemplate = OracleConnectionManager.getInstance().getJdbcTemplate();
 
-			// Получаем обработанные и декодированные байты из blob-поля. Base64 декодирование было выполнено ранее, при записи.
-			// Если размер запрашиваемого blob'а превышает ONE_HUNDRED_KB, данный массив будет содержать байты информирующего сообщения.
-			byte[] blobBytes = jdbcTemplate.queryForObject(sqlText, new Object[] {id}, blobMapper);
-
-			// Отображаем файл пользователю в виде String, в зависимости от выбранной им в UI кодировки.
-			// Т.о., изначальная кодировка нам не известна, но может быть восстановлена из заданного в UI набора, если в процессе преобразований
-			// (поиск и замена шаблонов $uuid/$doc_uuid, запись во временные файлы, чтение из временных файлов) не производилась запись байт
-			// в любой кодировке (этого мы избежали, используя Base64).
+			byte[] blobBytes = jdbcTemplate.queryForObject(
+					sqlText,
+					new Object[] {id},
+					blobMapper
+			);
 			result = new String(blobBytes, charsetName);
 
 		} catch (DataAccessException | UnsupportedEncodingException e) {
-			log.error("Не удалось извлечь вложение TB_MESSAGE_BIG_ATTRIBUTES по идентификатору " + id + ". SQL запрос: " + sqlText + " Исключение: ", e);
+			log.error(
+					"Не удалось извлечь вложение TB_MESSAGE_BIG_ATTRIBUTES по идентификатору " + id +
+							". SQL запрос: " + sqlText +
+							" Исключение: ", e
+			);
 		} finally {
 			OracleConnectionManager.getInstance().closeConnection();
 		}
-
 		return result;
 	}
 }

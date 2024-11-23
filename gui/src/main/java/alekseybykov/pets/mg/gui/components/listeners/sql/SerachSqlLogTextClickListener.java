@@ -18,10 +18,6 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author bykov.alexey
- * @since 26.06.2022
- */
 @Component
 public class SerachSqlLogTextClickListener implements ActionListener {
 
@@ -48,8 +44,11 @@ public class SerachSqlLogTextClickListener implements ActionListener {
 			@Override
 			protected Boolean doInBackground() {
 				JTextField sqlLexemTextField = sqlLogSearchPanel.getSqlLexemTextField();
-				rows = backendService.findAllRowsBySqlSubstring(sqlLexemTextField.getText(), Paginators.START_PAGE_NUMBER.getValue(),
-						Paginators.END_PAGE_NUMBER.getValue());
+				rows = backendService.findAllRowsBySqlSubstring(
+						sqlLexemTextField.getText(),
+						Paginators.START_PAGE_NUMBER.getValue(),
+						Paginators.END_PAGE_NUMBER.getValue()
+				);
 
 				sqlLogTablePanel.updatePaginator(rows.size());
 

@@ -9,10 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * @author bykov.alexey
- * @since 26.06.2022
- */
 @Service
 @Qualifier("SqlLogPaginatorService")
 public class SqlLogPaginatorServiceImpl implements PageableDataService {

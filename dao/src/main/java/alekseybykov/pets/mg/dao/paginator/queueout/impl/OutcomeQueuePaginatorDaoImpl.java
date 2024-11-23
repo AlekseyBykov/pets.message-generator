@@ -16,10 +16,6 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author bykov.alexey
- * @since 04.07.2021
- */
 @Repository
 public class OutcomeQueuePaginatorDaoImpl implements OutcomeQueuePaginatorDao {
 
@@ -42,7 +38,9 @@ public class OutcomeQueuePaginatorDaoImpl implements OutcomeQueuePaginatorDao {
 			JdbcTemplate jdbcTemplate = OracleConnectionManager.getInstance().getJdbcTemplate();
 			rows = jdbcTemplate.query(sqlText, new Object[] {startRownum, endRownum}, rowMapper);
 		} catch (DataAccessException e) {
-			logger.error("Не удалось извлечь данные QUEUE_PACKET_OUT. SQL запрос: " + sqlText + " Исключение: ", e);
+			logger.error(
+					"Не удалось извлечь данные QUEUE_PACKET_OUT. SQL запрос: " + sqlText +
+							" Исключение: ", e);
 		}
 		return rows;
 	}
@@ -57,7 +55,9 @@ public class OutcomeQueuePaginatorDaoImpl implements OutcomeQueuePaginatorDao {
 			JdbcTemplate jdbcTemplate = OracleConnectionManager.getInstance().getJdbcTemplate();
 			rowsCount = jdbcTemplate.queryForObject(sqlText, Integer.class);
 		} catch (DataAccessException e) {
-			logger.error("Не удалось найти число строк таблицы QUEUE_PACKET_OUT. SQL запрос: " + sqlText + " Исключение: ", e);
+			logger.error(
+					"Не удалось найти число строк таблицы QUEUE_PACKET_OUT. SQL запрос: " + sqlText +
+							" Исключение: ", e);
 		}
 		return rowsCount;
 	}

@@ -13,10 +13,6 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
-/**
- * @author bykov.alexey
- * @since 23.10.2023
- */
 @Component
 public class ServerLoggerToolbar extends JPanel {
 

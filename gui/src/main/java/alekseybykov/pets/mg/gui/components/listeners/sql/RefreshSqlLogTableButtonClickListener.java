@@ -20,10 +20,6 @@ import java.awt.event.ActionListener;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * @author bykov.alexey
- * @since 26.06.2022
- */
 @Component
 public class RefreshSqlLogTableButtonClickListener implements ActionListener {
 

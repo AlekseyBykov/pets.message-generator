@@ -6,10 +6,6 @@ import java.io.File;
 import java.io.InputStream;
 import java.nio.charset.Charset;
 
-/**
- * @author bykov.alexey
- * @since 25.02.2024
- */
 public interface DirectReader {
 
 	@NotNull

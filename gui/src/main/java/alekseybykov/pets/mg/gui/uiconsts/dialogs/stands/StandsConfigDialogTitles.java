@@ -3,10 +3,6 @@ package alekseybykov.pets.mg.gui.uiconsts.dialogs.stands;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
-/**
- * @author bykov.alexey
- * @since 28.12.2022
- */
 @RequiredArgsConstructor
 public enum StandsConfigDialogTitles {
 

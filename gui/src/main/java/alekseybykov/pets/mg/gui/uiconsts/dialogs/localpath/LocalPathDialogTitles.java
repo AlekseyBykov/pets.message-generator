@@ -3,10 +3,6 @@ package alekseybykov.pets.mg.gui.uiconsts.dialogs.localpath;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
-/**
- * @author bykov.alexey
- * @since 20.02.2024
- */
 @RequiredArgsConstructor
 public enum LocalPathDialogTitles {
 

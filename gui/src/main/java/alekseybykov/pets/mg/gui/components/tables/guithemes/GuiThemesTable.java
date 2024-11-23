@@ -9,10 +9,6 @@ import javax.swing.*;
 import javax.swing.table.TableCellRenderer;
 import java.awt.*;
 
-/**
- * @author bykov.alexey
- * @since 25.02.2024
- */
 @Component
 public class GuiThemesTable extends JTable {
 
@@ -30,7 +26,11 @@ public class GuiThemesTable extends JTable {
 	}
 
 	@Override
-	public java.awt.Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
+	public java.awt.Component prepareRenderer(
+			TableCellRenderer renderer,
+			int row,
+			int column
+	) {
 		java.awt.Component component = super.prepareRenderer(renderer, row, column);
 
 		if (isRowSelected(row)) {

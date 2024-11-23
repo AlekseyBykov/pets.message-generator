@@ -11,15 +11,11 @@ import javax.annotation.PostConstruct;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * @author bykov.alexey
- * @since 28.02.2024
- */
 @Component
 public class ChooseAttachmentFileButton extends JButton {
 
 	@Autowired
-	private ChooseAttachmentFileButtonClickListener chooseAttachmentFileButtonClickListener;
+	private ChooseAttachmentFileButtonClickListener listener;
 
 	@PostConstruct
 	private void postConstruct() {
@@ -27,6 +23,6 @@ public class ChooseAttachmentFileButton extends JButton {
 		setIcon(GUIHelper.scaleImageIcon(IconPaths.CHOOSE_XML_BTN_ICON.getPath(), 20, 20));
 		setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-		addActionListener(chooseAttachmentFileButtonClickListener);
+		addActionListener(listener);
 	}
 }

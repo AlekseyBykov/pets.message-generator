@@ -7,10 +7,6 @@ import lombok.val;
 
 import java.io.File;
 
-/**
- * @author bykov.alexey
- * @since 09.06.2022
- */
 @Slf4j
 @UtilityClass
 public class PathUtils {

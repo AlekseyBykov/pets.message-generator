@@ -20,10 +20,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author bykov.alexey
- * @since 19.02.2024
- */
 @Slf4j
 @Repository
 public class LocalPathDaoImpl implements LocalPathDao {
@@ -46,13 +42,18 @@ public class LocalPathDaoImpl implements LocalPathDao {
 
 	@Transactional
 	@Override
-	public void updateLocalPath(String localPathName, String localPathNewValue) {
+	public void updateLocalPath(
+			String localPathName,
+			String localPathNewValue
+	) {
 		val sqlText = "\nupdate message_generator.local_paths set path = ?\n" +
 		              "where lower(name) = lower(?)\n\n";
 		try {
 			jdbcTemplate.update(sqlText, localPathNewValue, localPathName);
 		} catch (DataAccessException e) {
-			log.error("Не удалось обновить значение " + localPathName + " в БД H2. SQL запрос: " + sqlText + "  Исключение: ", e);
+			log.error("Не удалось обновить значение " + localPathName +
+					" в БД H2. SQL запрос: " + sqlText +
+					"  Исключение: ", e);
 		}
 	}
 
@@ -67,11 +68,16 @@ public class LocalPathDaoImpl implements LocalPathDao {
 				@Override
 				public String extractData(ResultSet rs) throws SQLException,
 				                                               DataAccessException {
-					return rs.next() ? rs.getString("path") : null;
+					return rs.next()
+							? rs.getString("path")
+							: null;
 				}
 			});
 		} catch (DataAccessException e) {
-			log.error("Не удалось получить значение " + localPathName + " из БД H2. SQL запрос: " + sqlText + "  Исключение: ", e);
+			log.error("Не удалось получить значение " + localPathName +
+					" из БД H2. SQL запрос: " + sqlText +
+					"  Исключение: ", e
+			);
 		}
 		return localPathValue;
 	}

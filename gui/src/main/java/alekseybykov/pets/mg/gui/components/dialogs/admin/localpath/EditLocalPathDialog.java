@@ -28,10 +28,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * @author bykov.alexey
- * @since 20.02.2024
- */
 @Component
 public class EditLocalPathDialog extends JDialog {
 

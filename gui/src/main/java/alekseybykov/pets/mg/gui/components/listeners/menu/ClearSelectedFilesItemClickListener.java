@@ -11,10 +11,6 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * @author bykov.alexey
- * @since 30.04.2016
- */
 @Component
 public class ClearSelectedFilesItemClickListener implements ActionListener {
 
@@ -29,8 +25,16 @@ public class ClearSelectedFilesItemClickListener implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent actionEvent) {
-		int selectedOption = JOptionPane.showOptionDialog(null, "Вы действительно хотите сбросить текущий набор?",
-				"Подтвердите выбор", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, MODAL_DIALOG_OPTIONS, MODAL_DIALOG_OPTIONS[0]);
+		int selectedOption = JOptionPane.showOptionDialog(
+				null,
+				"Вы действительно хотите сбросить текущий набор?",
+				"Подтвердите выбор",
+				JOptionPane.YES_NO_OPTION,
+				JOptionPane.QUESTION_MESSAGE,
+				null,
+				MODAL_DIALOG_OPTIONS,
+				MODAL_DIALOG_OPTIONS[0]
+		);
 		if (selectedOption == NumberUtils.INTEGER_ZERO) {
 			clearModels();
 		}

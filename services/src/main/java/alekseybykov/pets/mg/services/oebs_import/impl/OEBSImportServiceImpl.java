@@ -10,10 +10,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * @author bykov.alexey
- * @since 08.03.2021
- */
 @Service
 public class OEBSImportServiceImpl implements OEBSImportService {
 

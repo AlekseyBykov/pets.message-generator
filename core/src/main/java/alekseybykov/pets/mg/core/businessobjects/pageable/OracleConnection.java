@@ -5,10 +5,6 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-/**
- * @author bykov.alexey
- * @since 14.03.2021
- */
 @Getter
 @Setter
 @Builder

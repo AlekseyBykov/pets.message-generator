@@ -3,10 +3,6 @@ package alekseybykov.pets.mg.gui.uiconsts.tabs;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
-/**
- * @author bykov.alexey
- * @since 24.02.2024
- */
 @RequiredArgsConstructor
 public enum TabTitles {
 

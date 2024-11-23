@@ -8,10 +8,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.io.File;
 
-/**
- * @author bykov.alexey
- * @since 26.06.2021
- */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class H2ConnectionManager {
 
@@ -37,22 +33,6 @@ public class H2ConnectionManager {
 		return jdbcTemplate;
 	}
 
-	/**
-	 * В методе выполняется подключение к БД H2, работающей в embedded mode (локальные JDBC соединения).
-	 * Параметр :file определяет file-based persistence mode, при котором все данные сохраняются
-	 * в файл MessageGenerator7.1.mv.db в подкаталоге /db.
-	 *
-	 * Также могут быть сгенерированы файлы
-	 * (файлы не следует редактировать, доступ производится через UI):
-	 *
-	 * - MessageGenerator7.1.lock.db
-	 * - MessageGenerator7.1.trace.db
-	 * - MessageGenerator7.1.123.temp.db
-	 * - MessageGenerator7.1.newFile
-	 * - MessageGenerator7.1.oldFile
-	 *
-	 * В файле /db/init/create-message-generator-db.sql содержится DDL и начальное наполнение таблиц.
-	 */
 	private static void createPooledDataSource() {
 		basicDataSource.setDriverClassName("org.h2.Driver");
 

@@ -9,10 +9,6 @@ import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-/**
- * @author bykov.alexey
- * @since 19.02.2024
- */
 @Component
 public class OAGISFileListTableMouseListener extends MouseAdapter {
 

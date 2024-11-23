@@ -6,10 +6,6 @@ import alekseybykov.pets.mg.services.queuein.IncomeQueueService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**
- * @author bykov.alexey
- * @since 16.04.2021
- */
 @Service
 public class IncomeQueueServiceImpl implements IncomeQueueService {
 

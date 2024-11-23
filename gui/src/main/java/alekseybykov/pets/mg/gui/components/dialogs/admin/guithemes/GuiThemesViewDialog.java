@@ -15,10 +15,6 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
-/**
- * @author bykov.alexey
- * @since 25.02.2024
- */
 @Component
 public class GuiThemesViewDialog extends JDialog {
 

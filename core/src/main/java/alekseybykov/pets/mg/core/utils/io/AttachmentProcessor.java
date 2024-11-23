@@ -16,29 +16,31 @@ import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author bykov.alexey
- * @since 16.06.2022
- */
 @Slf4j
 @UtilityClass
 public class AttachmentProcessor {
 
 	@SneakyThrows
 	@SuppressWarnings("UnnecessaryLocalVariable")
-	public File processXmlAttachment(AttachmentFile attachment, String attachUUID, String docUUID) {
+	public File processXmlAttachment(
+			AttachmentFile attachment,
+			String attachUUID,
+			String docUUID
+	) {
 		File xmlFile = new File(attachment.getPath());
 		File base64EncodedFile = TemplateProcessor.process(new FileInputStream(xmlFile), attachUUID, docUUID);
 
-		// Выполняем декодирование байтов из Base64 без предположений об исходной кодировке,
-		// тем самым сохраняем ее (неизвестной). Объект объявлен для большей наглядности.
 		File base64DecodedFile = EncodeUtils.decodeFile(base64EncodedFile, EncodingScheme.BASE64);
 
 		return base64DecodedFile;
 	}
 
 	@SneakyThrows
-	public File processZipAttachment(AttachmentFile attachment, String attachUUID, String docUUID) {
+	public File processZipAttachment(
+			AttachmentFile attachment,
+			String attachUUID,
+			String docUUID
+	) {
 		List<File> processedFiles = new ArrayList<>();
 		File zipFile = new File(attachment.getPath());
 
@@ -56,7 +58,11 @@ public class AttachmentProcessor {
 	}
 
 	@SneakyThrows
-	public File processGzipAttachment(AttachmentFile attachment, String attachUUID, String docUUID) {
+	public File processGzipAttachment(
+			AttachmentFile attachment,
+			String attachUUID,
+			String docUUID
+	) {
 		File gzipFile = new File(attachment.getPath());
 		File tempUngzippedFile = GzipUtils.ungzipToTempFile(gzipFile);
 

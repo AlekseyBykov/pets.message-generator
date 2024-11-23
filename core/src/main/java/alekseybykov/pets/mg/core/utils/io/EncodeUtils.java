@@ -14,14 +14,13 @@ import java.io.*;
 import java.util.Arrays;
 import java.util.Base64;
 
-/**
- * @author bykov.alexey
- * @since 13.06.2022
- */
 @UtilityClass
 public class EncodeUtils {
 
-	public String encodeByteBuffer(byte[] dataBuffer, EncodingScheme encodingScheme) {
+	public String encodeByteBuffer(
+			byte[] dataBuffer,
+			EncodingScheme encodingScheme
+	) {
 		switch (encodingScheme) {
 			case BASE64: {
 				return Base64.getEncoder().encodeToString(dataBuffer);
@@ -33,7 +32,10 @@ public class EncodeUtils {
 		}
 	}
 
-	public byte[] decodeByteBuffer(byte[] dataBuffer, EncodingScheme encodingScheme) {
+	public byte[] decodeByteBuffer(
+			byte[] dataBuffer,
+			EncodingScheme encodingScheme
+	) {
 		switch (encodingScheme) {
 			case BASE64: {
 				return Base64.getDecoder().decode(dataBuffer);
@@ -46,7 +48,10 @@ public class EncodeUtils {
 	}
 
 	@SneakyThrows
-	public File decodeFile(File encodedFile, EncodingScheme encodingScheme) {
+	public File decodeFile(
+			File encodedFile,
+			EncodingScheme encodingScheme
+	) {
 		switch (encodingScheme) {
 
 			case BASE64: {
@@ -98,35 +103,23 @@ public class EncodeUtils {
 		File tempFile = TempFileUtils.createTempFile();
 		BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
 
-		// Поскольку Base64 Encoder кодирует каждые 3 байта в 4 символа.
-		// Данный буфер будет находиться в ОЗУ, сбрасываясь по достижении THREE_KB
-		// на диск, во временный файл.
 		byte[] dataBuffer = new byte[BufferSizes.THREE_KB.getSize()];
 
 		int counter = 0;
 		byte consumedByte;
 
-		// inputStream.read() - здесь начинает отрабатывать переопределенный в UUIDFilterInputStream метод read().
-		// Сначала для uuidFilteredInputStream, затем docUuidFilteredInputStream.
 		while (NumberUtils.INTEGER_MINUS_ONE != (consumedByte = (byte) inputStream.read())) {
-			// Буфер в ОЗУ заполняется до размера THREE_KB, затем производится запись во временный файл на диск.
 			dataBuffer[counter++] = consumedByte;
 			if (counter == BufferSizes.THREE_KB.getSize()) {
 				String base64EncodedString = EncodeUtils.encodeByteBuffer(dataBuffer, EncodingScheme.BASE64);
 				writer.write(base64EncodedString);
 
-				// Заполняем буфер пустыми байтами после того, как записали из него в файл,
-				// поскольку иначе в файле могут появиться искажения.
 				Arrays.fill(dataBuffer, (byte) 0);
 				counter = 0;
 			}
 		}
 
-		// Если поток inputStream полностью прочитан, в буфере dataBuffer будут оставаться байты,
-		// которые также должны быть записаны во временный файл.
 		if (ArrayUtils.isNotEmpty(dataBuffer)) {
-			// Т.к. мы зануляем буфер выше, в нем будут "пустые байты" в конце, необходимо удалить их,
-			// иначе они будут отображаться в UI, а также не удастся декодировать временный файл.
 			dataBuffer = ByteUtils.removeEmptyTrailingBytes(dataBuffer);
 
 			String base64EncodedString = EncodeUtils.encodeByteBuffer(dataBuffer, EncodingScheme.BASE64);

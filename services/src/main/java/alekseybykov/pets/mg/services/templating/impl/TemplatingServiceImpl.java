@@ -13,10 +13,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-/**
- * @author bykov.alexey
- * @since 21.02.2024
- */
 @Component
 public class TemplatingServiceImpl implements TemplatingService {
 

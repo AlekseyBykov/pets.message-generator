@@ -20,10 +20,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author bykov.alexey
- * @since 25.02.2024
- */
 @Slf4j
 @Repository
 public class GuiThemeDaoImpl implements GuiThemeDao {

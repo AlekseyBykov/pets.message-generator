@@ -17,10 +17,6 @@ import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-/**
- * @author bykov.alexey
- * @since 26.06.2022
- */
 @Component
 public class SqlLogTableMouseClickListener extends MouseAdapter {
 
@@ -37,8 +33,8 @@ public class SqlLogTableMouseClickListener extends MouseAdapter {
 	public void mousePressed(MouseEvent mouseEvent) {
 		val table = (JTable) mouseEvent.getSource();
 		int selectedRow = table.getSelectedRow();
-		if (mouseEvent.getClickCount() == 2 && selectedRow != NumberUtils.INTEGER_MINUS_ONE) {
-			final String recordId = (String) table.getValueAt(selectedRow, NumberUtils.INTEGER_ZERO);
+		if (mouseEvent.getClickCount() == 2 && selectedRow != -1) {
+			final String recordId = (String) table.getValueAt(selectedRow, 0);
 			if (StringUtils.isEmpty(recordId)) {
 				return;
 			}
@@ -52,7 +48,12 @@ public class SqlLogTableMouseClickListener extends MouseAdapter {
 				@SneakyThrows
 				protected Boolean doInBackground() {
 					Thread.sleep(Timeouts.GUI_PROGRESSBAR_TIMEOUT.getValue());
-					sqlText = SqlFormatter.format(backendService.findSqlTextById(recordId, encodingModel.getSelectedEncoding()));
+					sqlText = SqlFormatter.format(
+							backendService.findSqlTextById(
+									recordId,
+									encodingModel.getSelectedEncoding()
+							)
+					);
 					return true;
 				}
 

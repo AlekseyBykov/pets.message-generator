@@ -15,10 +15,6 @@ import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.File;
 
-/**
- * @author bykov.alexey
- * @since 23.10.2023
- */
 @Component
 public class ChooseLogFileButtonClickListener extends ChooseFileButtonClickListener {
 
@@ -36,15 +32,22 @@ public class ChooseLogFileButtonClickListener extends ChooseFileButtonClickListe
 
 		fileChooser.setFileFilter(new FileNameExtensionFilter("*.log file", "log"));
 
-		if (fileChooser.showDialog(null, "Выбрать лог-файл") != JFileChooser.APPROVE_OPTION ) {
+		if (
+				fileChooser.showDialog(
+						null,
+						"Выбрать лог-файл"
+				) != JFileChooser.APPROVE_OPTION
+		) {
 			return;
 		}
 
 		if (!fileChooser.getSelectedFile().exists()) {
-			JOptionPane.showMessageDialog(fileChooser,
+			JOptionPane.showMessageDialog(
+					fileChooser,
 					ErrorMessages.FILE_CHOOSER_ERROR_MESSAGE.getName(),
 					"Ошибка при открытии файла",
-					JOptionPane.ERROR_MESSAGE);
+					JOptionPane.ERROR_MESSAGE
+			);
 		} else {
 			val absolutePath = fileChooser.getSelectedFile().getAbsolutePath();
 			val fileName = fileChooser.getSelectedFile().getName();

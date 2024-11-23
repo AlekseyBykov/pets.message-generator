@@ -26,10 +26,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * @author bykov.alexey
- * @since 26.06.2021
- */
 @Component
 public class AddNewStandConfigDialog extends JDialog {
 

@@ -8,10 +8,6 @@ import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-/**
- * @author bykov.alexey
- * @since 16.03.2021
- */
 @Component
 public class AttachmentFileListTableMouseListener extends MouseAdapter {
 

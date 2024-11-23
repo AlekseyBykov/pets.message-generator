@@ -1,9 +1,5 @@
 package alekseybykov.pets.mg.core.utils.html;
 
-/**
- * @author bykov.alexey
- * @since 17.02.2021
- */
 public class HtmlWrapper {
 
 	private static final String wrapperStart = "<html><p style=\"font-weight: normal;font-size: 9px;padding: 5px 5px;\">";

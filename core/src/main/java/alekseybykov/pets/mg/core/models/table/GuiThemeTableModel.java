@@ -8,10 +8,6 @@ import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author bykov.alexey
- * @since 25.02.2024
- */
 @Component
 public class GuiThemeTableModel extends AbstractTableModel implements TableModel {
 
@@ -61,7 +57,10 @@ public class GuiThemeTableModel extends AbstractTableModel implements TableModel
 		}
 	}
 
-	public void updateModel(GuiTheme updatedGuiTheme, int rowIndex) {
+	public void updateModel(
+			GuiTheme updatedGuiTheme,
+			int rowIndex
+	) {
 		GuiTheme selectedGuiTheme = ((GuiTheme) data.get(rowIndex));
 		selectedGuiTheme.setActive(updatedGuiTheme.isActive());
 		setValueAt(selectedGuiTheme, rowIndex, 1);

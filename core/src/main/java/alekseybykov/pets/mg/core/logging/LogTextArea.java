@@ -12,10 +12,6 @@ import javax.swing.text.html.HTMLDocument;
 import java.awt.*;
 import java.io.StringReader;
 
-/**
- * @author bykov.alexey
- * @since 22.02.2024
- */
 public class LogTextArea extends JEditorPane {
 
 	private static LogTextArea instance;

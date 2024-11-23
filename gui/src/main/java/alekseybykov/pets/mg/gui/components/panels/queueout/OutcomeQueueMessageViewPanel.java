@@ -10,10 +10,6 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
-/**
- * @author bykov.alexey
- * @since 20.04.2021
- */
 @Component
 public class OutcomeQueueMessageViewPanel extends JPanel {
 

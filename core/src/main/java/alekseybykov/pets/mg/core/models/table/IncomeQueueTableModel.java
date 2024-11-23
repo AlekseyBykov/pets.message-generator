@@ -9,12 +9,9 @@ import org.springframework.stereotype.Component;
 import javax.swing.table.AbstractTableModel;
 import java.util.List;
 
-/**
- * @author bykov.alexey
- * @since 16.04.2021
- */
 @Component
-public class IncomeQueueTableModel extends AbstractTableModel implements TableModel {
+public class IncomeQueueTableModel
+		extends AbstractTableModel implements TableModel {
 
 	private static final String[] COLUMN_NAMES = {
 			"id", "filename", "receivedate", "seqguid", "file_size",

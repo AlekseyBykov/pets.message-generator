@@ -17,10 +17,6 @@ import java.awt.event.ActionListener;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * @author bykov.alexey
- * @since 19.03.2021
- */
 @Component
 public class RefreshIncomeQueueTableButtonClickListener implements ActionListener {
 
@@ -39,8 +35,10 @@ public class RefreshIncomeQueueTableButtonClickListener implements ActionListene
 		loadPaginatorData(progressBar, tableModel);
 	}
 
-	private void loadPaginatorData(final JProgressBar progressBar,
-	                               final IncomeQueueTableModel tableModel) {
+	private void loadPaginatorData(
+			final JProgressBar progressBar,
+			final IncomeQueueTableModel tableModel
+	) {
 		progressBar.setVisible(true);
 		SwingWorker<Boolean, Void> dataLoader = new SwingWorker<Boolean, Void>() {
 			int totalRowCount;
@@ -62,14 +60,18 @@ public class RefreshIncomeQueueTableButtonClickListener implements ActionListene
 		dataLoader.execute();
 	}
 
-	private void loadTableDataRange(final IncomeQueueTableModel tableModel,
-	                                final JProgressBar progressBar) {
+	private void loadTableDataRange(
+			final IncomeQueueTableModel tableModel,
+			final JProgressBar progressBar
+	) {
 		SwingWorker<Boolean, Void> dataLoader = new SwingWorker<Boolean, Void>() {
 			List<PageableData> rows = Collections.emptyList();
 			@Override
 			protected Boolean doInBackground() {
-				rows = backendService.findRowsRange(Paginators.START_PAGE_NUMBER.getValue(),
-						Paginators.END_PAGE_NUMBER.getValue());
+				rows = backendService.findRowsRange(
+						Paginators.START_PAGE_NUMBER.getValue(),
+						Paginators.END_PAGE_NUMBER.getValue()
+				);
 				return true;
 			}
 

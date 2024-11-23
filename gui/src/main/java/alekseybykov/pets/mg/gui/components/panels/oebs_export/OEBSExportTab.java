@@ -14,10 +14,6 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
-/**
- * @author bykov.alexey
- * @since 16.02.2024
- */
 @Component
 public class OEBSExportTab extends JPanel {
 

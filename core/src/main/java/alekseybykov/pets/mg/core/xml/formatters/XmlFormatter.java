@@ -6,10 +6,6 @@ import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang3.StringUtils;
 
-/**
- * @author bykov.alexey
- * @since 08.11.2020
- */
 public class XmlFormatter {
 
 	@Getter @Setter

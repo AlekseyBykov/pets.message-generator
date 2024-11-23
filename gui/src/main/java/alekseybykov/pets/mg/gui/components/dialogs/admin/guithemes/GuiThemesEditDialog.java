@@ -25,10 +25,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * @author bykov.alexey
- * @since 25.02.2024
- */
 @Component
 public class GuiThemesEditDialog extends JDialog {
 

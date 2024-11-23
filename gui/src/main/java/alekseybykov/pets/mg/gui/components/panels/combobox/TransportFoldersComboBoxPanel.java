@@ -9,10 +9,6 @@ import javax.annotation.PostConstruct;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * @author bykov.alexey
- * @since 24.02.2024
- */
 @Component
 public class TransportFoldersComboBoxPanel extends JPanel {
 

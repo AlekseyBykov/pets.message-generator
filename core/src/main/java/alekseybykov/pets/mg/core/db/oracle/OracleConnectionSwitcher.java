@@ -12,10 +12,6 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author bykov.alexey
- * @since 04.03.2021
- */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class OracleConnectionSwitcher {
 

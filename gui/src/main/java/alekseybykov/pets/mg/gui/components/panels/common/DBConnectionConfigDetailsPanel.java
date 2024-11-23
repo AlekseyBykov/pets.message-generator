@@ -14,10 +14,6 @@ import java.awt.*;
 import static java.awt.GridBagConstraints.LINE_END;
 import static java.awt.GridBagConstraints.LINE_START;
 
-/**
- * @author bykov.alexey
- * @since 13.05.2021
- */
 @Component
 @Scope(value = "prototype")
 public class DBConnectionConfigDetailsPanel extends JPanel {

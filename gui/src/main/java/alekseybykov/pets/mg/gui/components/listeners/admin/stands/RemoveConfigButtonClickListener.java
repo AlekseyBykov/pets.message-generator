@@ -14,10 +14,6 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * @author bykov.alexey
- * @since 27.06.2021
- */
 @Component
 public class RemoveConfigButtonClickListener implements ActionListener {
 
@@ -33,14 +29,25 @@ public class RemoveConfigButtonClickListener implements ActionListener {
 	public void actionPerformed(ActionEvent actionEvent) {
 		int selectedRow = table.getSelectedRow();
 		if (selectedRow == NumberUtils.INTEGER_MINUS_ONE) {
-			JOptionPane.showMessageDialog(new JFrame(), ErrorMessages.CONFIG_NOT_SELECTED_FOR_REMOVE_ERROR_TEXT.getName(),
+			JOptionPane.showMessageDialog(
+					new JFrame(),
+					ErrorMessages.CONFIG_NOT_SELECTED_FOR_REMOVE_ERROR_TEXT.getName(),
 					ErrorMessages.REMOVE_CONFIG_ERROR.getName(),
-					JOptionPane.ERROR_MESSAGE);
+					JOptionPane.ERROR_MESSAGE
+			);
 			throw new RowIndexOutOfBoundsException(ErrorMessages.CONFIG_NOT_SELECTED_FOR_REMOVE_ERROR_TEXT.getName());
 		}
 
-		int opt = JOptionPane.showOptionDialog(new JFrame(), "Удалить выбранную конфигурацию?",
-				"Удаление конфигурации", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, MODAL_DIALOG_OPTIONS, MODAL_DIALOG_OPTIONS[0]);
+		int opt = JOptionPane.showOptionDialog(
+				new JFrame(),
+				"Удалить выбранную конфигурацию?",
+				"Удаление конфигурации",
+				JOptionPane.YES_NO_OPTION,
+				JOptionPane.QUESTION_MESSAGE,
+				null,
+				MODAL_DIALOG_OPTIONS,
+				MODAL_DIALOG_OPTIONS[0]
+		);
 		if (opt == NumberUtils.INTEGER_ZERO) {
 			final OracleConnection removedConfig = getConfigFromTable();
 

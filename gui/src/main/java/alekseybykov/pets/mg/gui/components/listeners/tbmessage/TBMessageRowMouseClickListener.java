@@ -20,10 +20,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.nio.charset.Charset;
 
-/**
- * @author bykov.alexey
- * @since 15.03.2021
- */
 @Component
 public class TBMessageRowMouseClickListener extends MouseAdapter {
 
@@ -65,11 +61,16 @@ public class TBMessageRowMouseClickListener extends MouseAdapter {
 				@Override
 				@SneakyThrows
 				protected Boolean doInBackground() {
-					// Удаляем предыдущее содержимое из фрейма просмотра XML.
 					blobViewer.setText(StringUtils.EMPTY);
 
 					Thread.sleep(Timeouts.GUI_PROGRESSBAR_TIMEOUT.getValue());
-					blobContent = XmlFormatter.format(service.findFileById(recordId, Charset.forName(encodingModel.getSelectedEncoding())));
+					blobContent = XmlFormatter.format(
+							service.findFileById(
+									recordId,
+									Charset.forName(encodingModel.getSelectedEncoding()
+									)
+							)
+					);
 					return true;
 				}
 
@@ -90,11 +91,6 @@ public class TBMessageRowMouseClickListener extends MouseAdapter {
 		}
 	}
 
-	/**
-	 * Мметод вызывает контекстное меню по правому клику мышью.
-	 *
-	 * @param mouseEvent
-	 */
 	@Override
 	public void mouseReleased(MouseEvent mouseEvent) {
 		JTable table = (JTable) mouseEvent.getSource();

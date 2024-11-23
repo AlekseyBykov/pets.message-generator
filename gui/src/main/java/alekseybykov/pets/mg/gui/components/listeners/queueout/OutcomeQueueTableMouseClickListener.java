@@ -17,10 +17,6 @@ import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-/**
- * @author bykov.alexey
- * @since 18.04.2021
- */
 @Component
 public class OutcomeQueueTableMouseClickListener extends MouseAdapter {
 
@@ -37,8 +33,8 @@ public class OutcomeQueueTableMouseClickListener extends MouseAdapter {
 	public void mousePressed(MouseEvent mouseEvent) {
 		val table = (JTable) mouseEvent.getSource();
 		val selectedRow = table.rowAtPoint(mouseEvent.getPoint());
-		if (mouseEvent.getClickCount() == 2 && selectedRow != NumberUtils.INTEGER_MINUS_ONE) {
-			final int recordId = (int) table.getValueAt(selectedRow, NumberUtils.INTEGER_ZERO);
+		if (mouseEvent.getClickCount() == 2 && selectedRow != -1) {
+			final int recordId = (int) table.getValueAt(selectedRow, 0);
 			if (recordId == 0) {
 				return;
 			}
@@ -52,7 +48,12 @@ public class OutcomeQueueTableMouseClickListener extends MouseAdapter {
 				@SneakyThrows
 				protected Boolean doInBackground() {
 					Thread.sleep(Timeouts.GUI_PROGRESSBAR_TIMEOUT.getValue());
-					fileContent = XmlFormatter.format(backendService.findFileById(recordId, encodingModel.getSelectedEncoding()));
+					fileContent = XmlFormatter.format(
+							backendService.findFileById(
+									recordId,
+									encodingModel.getSelectedEncoding()
+							)
+					);
 					return true;
 				}
 

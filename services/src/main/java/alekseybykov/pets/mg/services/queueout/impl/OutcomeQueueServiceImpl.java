@@ -6,10 +6,6 @@ import alekseybykov.pets.mg.services.queueout.OutcomeQueueService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**
- * @author bykov.alexey
- * @since 18.04.2021
- */
 @Service
 public class OutcomeQueueServiceImpl implements OutcomeQueueService {
 

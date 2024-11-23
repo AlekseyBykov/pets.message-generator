@@ -3,10 +3,6 @@ package alekseybykov.pets.mg.core.coreconsts;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
-/**
- * @author bykov.alexey
- * @since 04.03.2021
- */
 @RequiredArgsConstructor
 public enum ErrorMessages {
 

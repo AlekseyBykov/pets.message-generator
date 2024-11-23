@@ -17,10 +17,6 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
-/**
- * @author bykov.alexey
- * @since 16.04.2021
- */
 @Component
 public class IncomeQueueTablePanel extends JPanel {
 

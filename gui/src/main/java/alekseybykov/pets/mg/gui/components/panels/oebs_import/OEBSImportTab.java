@@ -16,10 +16,6 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
-/**
- * @author bykov.alexey
- * @since 17.02.2021
- */
 @Component
 public class OEBSImportTab extends JPanel {
 
@@ -91,7 +87,6 @@ public class OEBSImportTab extends JPanel {
 
 	private JPanel buildOAGISDetailsTable() {
 		JPanel panel = new JPanel();
-		// todo желательно использовать GridLayout вместо явного указания размеров.
 		panel.setPreferredSize(
 				new Dimension(GUISize.MAX_COMMON_WIDTH.getValue(), GUISize.ONE_ROW_TABLE_HEIGHT.getValue()));
 		panel.setLayout(new BorderLayout());

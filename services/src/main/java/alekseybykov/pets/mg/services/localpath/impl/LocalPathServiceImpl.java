@@ -8,10 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * @author bykov.alexey
- * @since 19.02.2024
- */
 @Service
 public class LocalPathServiceImpl implements LocalPathService {
 

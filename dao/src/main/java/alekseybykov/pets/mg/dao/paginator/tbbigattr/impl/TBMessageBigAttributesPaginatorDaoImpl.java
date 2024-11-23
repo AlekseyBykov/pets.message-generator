@@ -16,10 +16,6 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author bykov.alexey
- * @since 04.07.2021
- */
 @Repository
 public class TBMessageBigAttributesPaginatorDaoImpl implements TBMessageBigAttributesPaginatorDao {
 
@@ -43,7 +39,9 @@ public class TBMessageBigAttributesPaginatorDaoImpl implements TBMessageBigAttri
 			JdbcTemplate jdbcTemplate = OracleConnectionManager.getInstance().getJdbcTemplate();
 			rows = jdbcTemplate.query(sqlText, new Object[] {startRownum, endRownum}, rowMapper);
 		} catch (DataAccessException e) {
-			logger.error("Не удалось извлечь данные TB_MESSAGE_BIG_ATTRIBUTES. SQL запрос: " + sqlText + " Исключение: ", e);
+			logger.error(
+					"Не удалось извлечь данные TB_MESSAGE_BIG_ATTRIBUTES. SQL запрос: " + sqlText +
+							" Исключение: ", e);
 		}
 		return rows;
 	}
@@ -57,7 +55,9 @@ public class TBMessageBigAttributesPaginatorDaoImpl implements TBMessageBigAttri
 			JdbcTemplate jdbcTemplate = OracleConnectionManager.getInstance().getJdbcTemplate();
 			rowsCount = jdbcTemplate.queryForObject(sqlText, Integer.class);
 		} catch (DataAccessException e) {
-			logger.error("Не удалось найти число строк таблицы TB_MESSAGE_BIG_ATTRIBUTES. SQL запрос: " + sqlText + " Исключение: ", e);
+			logger.error(
+					"Не удалось найти число строк таблицы TB_MESSAGE_BIG_ATTRIBUTES. SQL запрос: " + sqlText +
+							" Исключение: ", e);
 		} finally {
 			OracleConnectionManager.getInstance().closeConnection();
 		}

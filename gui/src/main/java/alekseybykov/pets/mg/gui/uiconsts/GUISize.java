@@ -3,10 +3,6 @@ package alekseybykov.pets.mg.gui.uiconsts;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
-/**
- * @author bykov.alexey
- * @since 15.04.2021
- */
 @RequiredArgsConstructor
 public enum GUISize {
 

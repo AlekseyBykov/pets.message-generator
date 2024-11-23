@@ -7,10 +7,6 @@ import lombok.Setter;
 
 import java.util.Date;
 
-/**
- * @author bykov.alexey
- * @since 18.03.2021
- */
 @Getter
 @Setter
 @Builder

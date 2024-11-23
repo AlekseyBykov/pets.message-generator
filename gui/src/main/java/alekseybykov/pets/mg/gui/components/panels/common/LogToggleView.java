@@ -12,10 +12,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * @author bykov.alexey
- * @since 28.02.2024
- */
 @Component
 @Scope(value = "prototype")
 public class LogToggleView extends JPanel {

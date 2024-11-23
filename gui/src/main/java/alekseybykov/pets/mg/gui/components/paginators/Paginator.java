@@ -15,10 +15,6 @@ import java.awt.event.ActionEvent;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * @author bykov.alexey
- * @since 15.04.2021
- */
 public class Paginator {
 
 	@Getter @Setter
@@ -63,10 +59,7 @@ public class Paginator {
 
 		int pages = (int) Math.ceil((double) totalRowCount / pageSize);
 
-		// Если число страниц превышает число конопок для отображения,
-		// то выстраивается диапазон.
 		if (pages > displayedButtonsNumber) {
-			// Добавляется первая кнопка, всегда присутствует.
 			addPagingButton(buttonGroup, 1);
 
 			if (currentSelectedPage > (pages - ((displayedButtonsNumber + 1) / 2))) {
@@ -77,11 +70,8 @@ public class Paginator {
 			} else if (currentSelectedPage <= (displayedButtonsNumber + 1) / 2) {
 				// 1->n ... lastPage
 
-				// Добавление кнопок с 2й по displayedButtonsNumber - 2.
 				addPagingButtonsRange(buttonGroup, 2, displayedButtonsNumber - 2);
-				// Перед последней кнопкой добавляется многоточие.
 				paginatorPanel.add(buildRangeMark());
-				// Добавление последней конпки из диапазона.
 				addPagingButton(buttonGroup, pages);
 			} else {
 				//1 ... x->n ... lastPage
@@ -96,7 +86,6 @@ public class Paginator {
 				addPagingButton(buttonGroup, pages);
 			}
 		} else {
-			// Если число кнопок равно числу страниц, то отображаются все кнопки.
 			addPagingButtonsRange(buttonGroup, 1, pages);
 		}
 	}

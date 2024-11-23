@@ -11,10 +11,6 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellRenderer;
 import java.awt.*;
 
-/**
- * @author bykov.alexey
- * @since 19.04.2021
- */
 @Component
 public class OutcomeQueueTable extends JTable {
 
@@ -35,7 +31,11 @@ public class OutcomeQueueTable extends JTable {
 	}
 
 	@Override
-	public java.awt.Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
+	public java.awt.Component prepareRenderer(
+			TableCellRenderer renderer,
+			int row,
+			int column
+	) {
 		java.awt.Component component = super.prepareRenderer(renderer, row, column);
 
 		component.setFont(new Font("Courier New", Font.BOLD, 12));

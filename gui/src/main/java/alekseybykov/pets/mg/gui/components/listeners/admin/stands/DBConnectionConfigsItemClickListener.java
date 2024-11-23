@@ -7,10 +7,6 @@ import org.springframework.stereotype.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * @author bykov.alexey
- * @since 25.06.2021
- */
 @Component
 public class DBConnectionConfigsItemClickListener implements ActionListener {
 

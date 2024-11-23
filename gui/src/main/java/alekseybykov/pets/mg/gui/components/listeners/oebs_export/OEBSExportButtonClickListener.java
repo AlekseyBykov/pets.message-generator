@@ -24,10 +24,6 @@ import java.io.File;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @author bykov.alexey
- * @since 16.02.2024
- */
 @Slf4j
 @Component
 public class OEBSExportButtonClickListener implements ActionListener {
@@ -53,8 +49,16 @@ public class OEBSExportButtonClickListener implements ActionListener {
 		List<TFFFile> tffFiles = tffFileListTableModel.getTffFiles();
 		if (CollectionUtils.isEmpty(tffFiles)) {
 			Object[] dialogOptions = {"Ок"};
-			JOptionPane.showOptionDialog(null, "Не выбраны ТФФ файлы", "Ошибка",
-					JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE, null, dialogOptions, null);
+			JOptionPane.showOptionDialog(
+					null,
+					"Не выбраны ТФФ файлы",
+					"Ошибка",
+					JOptionPane.YES_NO_OPTION,
+					JOptionPane.ERROR_MESSAGE,
+					null,
+					dialogOptions,
+					null
+			);
 			log.error("Необходимо выбрать ТФФ файлы, которые будут отправлены в транспортный каталог");
 			return;
 		}
@@ -62,8 +66,16 @@ public class OEBSExportButtonClickListener implements ActionListener {
 		TransportFolder transportFolder = transportFolderComboBoxModel.getSelectedItem();
 		if (transportFolder == null) {
 			Object[] dialogOptions = {"Ок"};
-			JOptionPane.showOptionDialog(null, "Не выбран транспортный каталог", "Ошибка",
-					JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE, null, dialogOptions, null);
+			JOptionPane.showOptionDialog(
+					null,
+					"Не выбран транспортный каталог",
+					"Ошибка",
+					JOptionPane.YES_NO_OPTION,
+					JOptionPane.ERROR_MESSAGE,
+					null,
+					dialogOptions,
+					null
+			);
 			log.error("Необходимо выбрать транспортный каталог, в который будет отправлен ТФФ файл");
 			return;
 		}
@@ -90,12 +102,16 @@ public class OEBSExportButtonClickListener implements ActionListener {
 			protected void done() {
 				try {
 					if (get()) {
-						uiLogger.log("<font color=\"#138808\"><b>Процесс генерации завершен успешно</b></font><br/>");
+						uiLogger.log(
+								"<font color=\"#138808\"><b>Процесс генерации завершен успешно</b></font><br/>"
+						);
 					}
 				} finally {
 					progressBar.setVisible(false);
 					oebsExportButton.setEnabled(true);
-					uiLogger.log("<font color=\"#742765\"><b>[процесс генерации остановлен]</b></font><br/><br/>");
+					uiLogger.log(
+							"<font color=\"#742765\"><b>[процесс генерации остановлен]</b></font><br/><br/>"
+					);
 				}
 			}
 		};

@@ -4,10 +4,6 @@ import lombok.experimental.UtilityClass;
 
 import java.io.InputStream;
 
-/**
- * @author bykov.alexey
- * @since 29.02.2024
- */
 @UtilityClass
 public class ResourceReader {
 

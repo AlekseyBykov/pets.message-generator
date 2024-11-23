@@ -17,10 +17,6 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
-/**
- * @author bykov.alexey
- * @since 26.12.2022
- */
 @Component
 public class LocalPathsDialog extends JDialog {
 

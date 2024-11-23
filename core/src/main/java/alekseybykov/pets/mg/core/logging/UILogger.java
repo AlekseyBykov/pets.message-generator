@@ -7,14 +7,13 @@ import lombok.NoArgsConstructor;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
- * @author bykov.alexey
- * @since 22.02.2024
- */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class UILogger {
 
-	private static final SimpleDateFormat sdf = new SimpleDateFormat(DateTimePatterns.DATE_TIME_PATTERN.getPattern());
+	private static final SimpleDateFormat sdf = new SimpleDateFormat(
+			DateTimePatterns.DATE_TIME_PATTERN.getPattern()
+	);
+
 	private static LogTextArea logTextArea = LogTextArea.getInstance();
 
 	private static UILogger instance;

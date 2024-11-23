@@ -7,10 +7,6 @@ import org.springframework.stereotype.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * @author bykov.alexey
- * @since 26.12.2022
- */
 @Component
 public class LocalPathsItemClickListener implements ActionListener {
 

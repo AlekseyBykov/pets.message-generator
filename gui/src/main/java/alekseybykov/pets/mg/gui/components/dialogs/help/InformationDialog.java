@@ -13,10 +13,6 @@ import javax.swing.text.html.HTMLEditorKit;
 import java.awt.*;
 import java.nio.charset.StandardCharsets;
 
-/**
- * @author bykov.alexey
- * @since 30.04.2022
- */
 public class InformationDialog extends JDialog {
 
 	private final DirectStringsReader directStringsReader = new DirectStringsReader();
@@ -50,7 +46,11 @@ public class InformationDialog extends JDialog {
 		GUIHelper.stylizeHtmlEditorKit(htmlEditorKit);
 		Document document = htmlEditorKit.createDefaultDocument();
 		editorPane.setDocument(document);
-		editorPane.setText(directStringsReader.readFile(GUIHelper.loadDialogText(HtmlPaths.INSTRUCTION_TEXT.getPath()), StandardCharsets.UTF_8));
+		editorPane.setText(
+				directStringsReader.readFile(
+						GUIHelper.loadDialogText(HtmlPaths.INSTRUCTION_TEXT.getPath()),
+						StandardCharsets.UTF_8)
+		);
 		editorPane.setCaretPosition(NumberUtils.INTEGER_ZERO);
 		setTitle(HelpDialogNames.HELP_TITLE.getName());
 

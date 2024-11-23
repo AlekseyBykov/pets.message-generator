@@ -8,10 +8,6 @@ import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
-/**
- * @author bykov.alexey
- * @since 09.06.2022
- */
 @UtilityClass
 public class IOStreamUtils {
 

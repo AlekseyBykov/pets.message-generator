@@ -14,10 +14,6 @@ import java.awt.*;
 import static java.awt.GridBagConstraints.LINE_END;
 import static java.awt.GridBagConstraints.LINE_START;
 
-/**
- * @author bykov.alexey
- * @since 20.02.2024
- */
 @Component
 @Scope(value = "prototype")
 public class LocalPathDetailsPanel extends JPanel {

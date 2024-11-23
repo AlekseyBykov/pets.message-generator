@@ -14,10 +14,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * @author bykov.alexey
- * @since 01.11.2023
- */
 @Component
 @Scope(value = "prototype")
 public class EncodingView extends JPanel {

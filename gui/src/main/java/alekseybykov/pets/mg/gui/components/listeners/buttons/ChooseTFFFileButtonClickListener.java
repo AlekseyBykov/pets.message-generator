@@ -14,10 +14,6 @@ import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.File;
 
-/**
- * @author bykov.alexey
- * @since 16.02.2024
- */
 @Component
 public class ChooseTFFFileButtonClickListener extends ChooseFileButtonClickListener {
 

@@ -14,10 +14,6 @@ import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.File;
 
-/**
- * @author bykov.alexey
- * @since 29.04.2022
- */
 @Component
 public class ChooseOAGISFileButtonClickListener extends ChooseFileButtonClickListener {
 

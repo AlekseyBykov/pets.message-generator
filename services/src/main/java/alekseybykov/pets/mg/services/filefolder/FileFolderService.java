@@ -7,10 +7,6 @@ import java.io.File;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @author bykov.alexey
- * @since 21.02.2024
- */
 public interface FileFolderService {
 
 	@NotNull

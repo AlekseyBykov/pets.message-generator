@@ -5,12 +5,6 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-/**
- * Лог SQL запросов (V$SQL).
- *
- * @author bykov.alexey
- * @since 26.06.2022
- */
 @Getter
 @Setter
 @Builder

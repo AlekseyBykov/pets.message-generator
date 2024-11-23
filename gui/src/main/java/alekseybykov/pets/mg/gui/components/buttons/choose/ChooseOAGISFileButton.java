@@ -10,15 +10,11 @@ import javax.annotation.PostConstruct;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * @author bykov.alexey
- * @since 28.02.2024
- */
 @Component
 public class ChooseOAGISFileButton extends JButton {
 
 	@Autowired
-	private ChooseOAGISFileButtonClickListener chooseOAGISFileButtonClickListener;
+	private ChooseOAGISFileButtonClickListener listener;
 
 	@PostConstruct
 	private void postConstruct() {
@@ -26,6 +22,6 @@ public class ChooseOAGISFileButton extends JButton {
 		setIcon(GUIHelper.scaleImageIcon(IconPaths.CHOOSE_XML_BTN_ICON.getPath(), 20, 20));
 		setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-		addActionListener(chooseOAGISFileButtonClickListener);
+		addActionListener(listener);
 	}
 }

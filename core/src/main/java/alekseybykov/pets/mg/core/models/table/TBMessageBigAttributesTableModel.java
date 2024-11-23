@@ -8,12 +8,10 @@ import org.springframework.stereotype.Component;
 import javax.swing.table.AbstractTableModel;
 import java.util.List;
 
-/**
- * @author bykov.alexey
- * @since 18.03.2021
- */
 @Component
-public class TBMessageBigAttributesTableModel extends AbstractTableModel implements TableModel {
+public class TBMessageBigAttributesTableModel
+		extends AbstractTableModel
+		implements TableModel {
 
 	private static final String[] COLUMN_NAMES = {
 			"id", "tb_msg_id", "doc_guid", "att_guid", "description",

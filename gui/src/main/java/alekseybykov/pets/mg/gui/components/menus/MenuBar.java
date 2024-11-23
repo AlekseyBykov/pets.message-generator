@@ -18,10 +18,6 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import javax.swing.*;
 
-/**
- * @author bykov.alexey
- * @since 29.12.2022
- */
 @Component
 public class MenuBar extends JMenuBar {
 

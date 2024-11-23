@@ -7,10 +7,6 @@ import org.springframework.stereotype.Component;
 
 import java.io.File;
 
-/**
- * @author bykov.alexey
- * @since 29.02.2024
- */
 @Component
 public class TicketFactory {
 

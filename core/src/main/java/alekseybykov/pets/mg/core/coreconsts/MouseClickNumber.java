@@ -5,10 +5,6 @@ import lombok.Getter;
 
 import java.util.Arrays;
 
-/**
- * @author bykov.alexey
- * @since 29.02.2024
- */
 @AllArgsConstructor
 public enum MouseClickNumber {
 

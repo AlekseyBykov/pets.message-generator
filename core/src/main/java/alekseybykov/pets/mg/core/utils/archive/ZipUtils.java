@@ -19,26 +19,12 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
 
-/**
- * Утилитарный класс, которому делегируется логика работы с zip-архивами.
- *
- * @author bykov.alexey
- * @since 14.06.2022
- */
 @Slf4j
 @UtilityClass
 public class ZipUtils {
 
 	private static final UILogger uiLogger = UILogger.getInstance();
 
-	/**
-	 * Метод распаковывает вложение, представленное zip-архивом и возвращает ссылку на созданную временную директорию.
-	 *
-	 * При распаковке архива, в данной временной директории создаются временные
-	 * файлы-копии каждого из файлов исходного архива.
-	 *
-	 * @param zipFilePath - абсолютный путь к zip-архиву вложения на диске.
-	 */
 	@SneakyThrows
 	private File unzipToTempFolder(String zipFilePath) {
 		File unzippedTempFolder = TempFileUtils.createTempFolder();
@@ -52,10 +38,6 @@ public class ZipUtils {
 			FileOutputStream fileOutputStream = new FileOutputStream(copyOfZipEntry);
 			int consumedBytes;
 
-			// Входной поток zipInputStream содержит байты всех входящих в архив файлов,
-			// поэтому каждый файл zipEntry вычитывается из него - из этого общего потока.
-			// После считывания байтов файла, поток zipInputStream вычитан на размер данного файла,
-			// т.о., следующее обращение будет к следующему файлу в этом потоке и т.д.
 			while ((consumedBytes = zipInputStream.read(buffer)) > NumberUtils.INTEGER_ZERO) {
 				fileOutputStream.write(buffer, 0, consumedBytes);
 			}
@@ -71,16 +53,6 @@ public class ZipUtils {
 		return unzippedTempFolder;
 	}
 
-	/**
-	 * Метод распаковывает вложение, представленное zip-архивом и возвращает временный каталог со списом временных
-	 * копий файлов, которые были упакованы в данный архив.
-	 *
-	 * При распаковке архива, во временном каталоге создаются временные файлы-копии
-	 * каждого из файлов исходного архива.
-	 *
-	 * @param zipFile - zip-архив.
-	 * @return - список временных копий распакованных файлов.
-	 */
 	@SneakyThrows
 	public List<File> getUnzippedTempFiles(File zipFile) {
 		List<File> unzippedTempFiles = new ArrayList<>();
@@ -96,15 +68,11 @@ public class ZipUtils {
 		return unzippedTempFiles;
 	}
 
-	/**
-	 * Метод упаковывает файлы во временный zip-архив.
-	 *
-	 * @param zipFileName - имя, которое будет присвоено временному zip-файлу.
-	 * @param files - файлы, которые необходимо упаковать.
-	 * @return - ссылка на временную копию zip-архива.
-	 */
 	@SneakyThrows
-	public File packFilesToTempZip(String zipFileName, List<File> files) {
+	public File packFilesToTempZip(
+			String zipFileName,
+			List<File> files
+	) {
 		val tempZipFile = new File(zipFileName);
 		val fileOutputStream = new FileOutputStream(tempZipFile);
 		val zipOutputStream = new ZipOutputStream(fileOutputStream);
@@ -116,9 +84,6 @@ public class ZipUtils {
 			ZipEntry zipEntry = new ZipEntry(file.getName());
 			zipOutputStream.putNextEntry(zipEntry);
 
-			// Выходной поток zipOutputStream содержит байты всех размещаемых в архиве файлов,
-			// поэтому каждый файл zipEntry записывается в него - в этот общий поток для записи.
-			// После записи байтов файла, поток zipOutputStream заполнен на размер данного файла.
 			int consumedBytes;
 			while((consumedBytes = fileInputStream.read(buffer)) >= NumberUtils.INTEGER_ZERO) {
 				zipOutputStream.write(buffer, 0, consumedBytes);
@@ -133,12 +98,6 @@ public class ZipUtils {
 		return tempZipFile;
 	}
 
-	/**
-	 * Метод определяет, является-ли файл zip-архивом по комбинации байт в заголовке файла.
-	 *
-	 * @param file - проверяемый файл.
-	 * @return - true, если файл является zip-архивом, иначе false.
-	 */
 	public boolean isZipArchive(File file) {
 		var result = false;
 		try (val fis = new FileInputStream(file);
@@ -156,12 +115,6 @@ public class ZipUtils {
 		return result;
 	}
 
-	/**
-	 * Метод определяет, является-ли файл zip-архивом по заголовочным байтам файла.
-	 *
-	 * @param bytes - сериализованный файл.
-	 * @return - true, если файл является zip-архивом, иначе false.
-	 */
 	public boolean isZipArchive(byte[] bytes) {
 		if (bytes.length < 4) {
 			return false;

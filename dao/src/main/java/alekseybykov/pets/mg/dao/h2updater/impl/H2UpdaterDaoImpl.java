@@ -8,10 +8,6 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-/**
- * @author bykov.alexey
- * @since 25.02.2024
- */
 @Slf4j
 @Repository
 public class H2UpdaterDaoImpl implements H2UpdaterDao {

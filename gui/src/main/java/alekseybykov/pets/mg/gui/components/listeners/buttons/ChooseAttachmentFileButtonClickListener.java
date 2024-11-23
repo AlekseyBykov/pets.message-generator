@@ -13,10 +13,6 @@ import org.springframework.util.StringUtils;
 import javax.swing.*;
 import java.io.File;
 
-/**
- * @author bykov.alexey
- * @since 29.04.2022
- */
 @Component
 public class ChooseAttachmentFileButtonClickListener extends ChooseFileButtonClickListener {
 
@@ -47,7 +43,11 @@ public class ChooseAttachmentFileButtonClickListener extends ChooseFileButtonCli
 
 			localPathService.updateLocalPath("ATTACHMENT_HOME", absolutePath);
 
-			AttachmentFile attachmentFile = new AttachmentFile(fileName, fileChooser.getSelectedFile().length(), absolutePath);
+			AttachmentFile attachmentFile = new AttachmentFile(
+					fileName,
+					fileChooser.getSelectedFile().length(),
+					absolutePath
+			);
 			attachmentFileListTableModel.addAttachmentFile(attachmentFile);
 		}
 	}

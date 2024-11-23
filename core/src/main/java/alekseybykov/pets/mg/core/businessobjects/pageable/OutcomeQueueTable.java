@@ -7,12 +7,6 @@ import lombok.Setter;
 
 import java.util.Date;
 
-/**
- * Исходящая пакетная очередь СУФД.
- *
- * @author bykov.alexey
- * @since 16.04.2021
- */
 @Getter
 @Setter
 @Builder

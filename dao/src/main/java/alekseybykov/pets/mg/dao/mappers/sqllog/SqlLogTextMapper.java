@@ -6,10 +6,6 @@ import org.springframework.stereotype.Component;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- * @author bykov.alexey
- * @since 26.06.2022
- */
 @Component
 public class SqlLogTextMapper implements RowMapper<byte[]> {
 

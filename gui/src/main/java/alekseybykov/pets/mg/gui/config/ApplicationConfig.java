@@ -5,10 +5,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
-/**
- * @author bykov.alexey
- * @since 17.02.2021
- */
 @Configuration
 @EnableScheduling
 @EnableAspectJAutoProxy(proxyTargetClass = true)

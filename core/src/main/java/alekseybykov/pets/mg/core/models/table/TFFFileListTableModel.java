@@ -10,15 +10,13 @@ import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author bykov.alexey
- * @since 16.02.2024
- */
 @Component
 public class TFFFileListTableModel extends AbstractTableModel {
 
 	private static final String[] COLUMN_NAMES = {
-			"Имя файла ТФФ (редактируемое поле)", "Путь к файлу", "Размер файла (байт)"
+			"Имя файла ТФФ (редактируемое поле)",
+			"Путь к файлу",
+			"Размер файла (байт)"
 	};
 
 	@Setter @Getter
@@ -48,7 +46,11 @@ public class TFFFileListTableModel extends AbstractTableModel {
 	}
 
 	@Override
-	public void setValueAt(Object value, int row, int column) {
+	public void setValueAt(
+            Object value,
+            int row,
+            int column
+    ) {
 		if (column == 0) {
 			tffFiles.get(row).setName((String) value);
 		}

@@ -11,10 +11,6 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellRenderer;
 import java.awt.*;
 
-/**
- * @author bykov.alexey
- * @since 26.06.2022
- */
 @Component
 public class SqlLogTable extends JTable {
 
@@ -35,7 +31,11 @@ public class SqlLogTable extends JTable {
 	}
 
 	@Override
-	public java.awt.Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
+	public java.awt.Component prepareRenderer(
+			TableCellRenderer renderer,
+			int row,
+			int column
+	) {
 		java.awt.Component component = super.prepareRenderer(renderer, row, column);
 
 		component.setFont(new Font("Courier New", Font.BOLD, 12));

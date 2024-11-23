@@ -5,10 +5,6 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import javax.swing.*;
 
-/**
- * @author bykov.alexey
- * @since 28.02.2024
- */
 @Component
 public class ServerLogFilePathTextField extends JTextField {
 

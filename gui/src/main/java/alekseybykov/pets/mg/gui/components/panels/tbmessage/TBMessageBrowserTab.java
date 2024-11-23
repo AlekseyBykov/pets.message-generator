@@ -7,10 +7,6 @@ import javax.annotation.PostConstruct;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * @author bykov.alexey
- * @since 17.02.2021
- */
 @Component
 public class TBMessageBrowserTab extends JPanel {
 
@@ -23,7 +19,11 @@ public class TBMessageBrowserTab extends JPanel {
 	private void postConstruct() {
 		setLayout(new BorderLayout());
 
-		JSplitPane splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, tbMessageTablePanel, oagisMessageViewPanel);
+		JSplitPane splitPane = new JSplitPane(
+				JSplitPane.VERTICAL_SPLIT,
+				tbMessageTablePanel,
+				oagisMessageViewPanel
+		);
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				splitPane.setOneTouchExpandable(true);

@@ -10,10 +10,6 @@ import javax.swing.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
-/**
- * @author bykov.alexey
- * @since 24.10.2023
- */
 @Component
 public class StartStopLoggerBtnClickListener implements ItemListener {
 
@@ -24,7 +20,7 @@ public class StartStopLoggerBtnClickListener implements ItemListener {
 
 	@Override
 	public void itemStateChanged(ItemEvent itemEvent) {
-		//todo для рефакторинга: источник события можно заинжектить или получить так.
+		// get the message source
 		JToggleButton eventSource = (JToggleButton) (itemEvent.getSource());
 		val state = itemEvent.getStateChange();
 		if (state == ItemEvent.SELECTED) {

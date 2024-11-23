@@ -4,10 +4,6 @@ import alekseybykov.pets.mg.core.businessobjects.PageableData;
 
 import java.nio.charset.Charset;
 
-/**
- * @author bykov.alexey
- * @since 04.07.2021
- */
 public interface TBMessageService {
 
 	PageableData findRowById(int id);

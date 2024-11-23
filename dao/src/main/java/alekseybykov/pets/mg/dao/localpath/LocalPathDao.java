@@ -4,10 +4,6 @@ import alekseybykov.pets.mg.core.businessobjects.PageableData;
 
 import java.util.List;
 
-/**
- * @author bykov.alexey
- * @since 19.02.2024
- */
 public interface LocalPathDao {
 
 	List<PageableData> getAllLocalPaths();

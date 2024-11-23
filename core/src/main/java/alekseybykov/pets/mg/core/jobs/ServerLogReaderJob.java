@@ -10,10 +10,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-/**
- * @author bykov.alexey
- * @since 23.10.2023
- */
 @Component
 public class ServerLogReaderJob {
 

@@ -3,10 +3,6 @@ package alekseybykov.pets.mg.gui.uiconsts.localresources;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
-/**
- * @author bykov.alexey
- * @since 26.12.2022
- */
 @RequiredArgsConstructor
 public enum IconPaths {
 

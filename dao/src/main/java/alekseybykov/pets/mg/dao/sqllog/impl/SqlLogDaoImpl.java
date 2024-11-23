@@ -18,10 +18,6 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author bykov.alexey
- * @since 26.06.2022
- */
 @Slf4j
 @Repository
 public class SqlLogDaoImpl implements SqlLogDao {
@@ -42,7 +38,10 @@ public class SqlLogDaoImpl implements SqlLogDao {
 			JdbcTemplate jdbcTemplate = OracleConnectionManager.getInstance().getJdbcTemplate();
 			row = jdbcTemplate.queryForObject(sqlText, new Object[] {id}, sqlLogRowMapper);
 		} catch (DataAccessException e) {
-			log.error("Не удалось найти запись таблицы V$SQL по идентификатору " + id + ". SQL запрос: " + sqlText + " Исключение: ", e);
+			log.error("Не удалось найти запись таблицы V$SQL по идентификатору " + id +
+					". SQL запрос: " + sqlText +
+					" Исключение: ", e
+			);
 		}
 		return row;
 	}
@@ -54,18 +53,30 @@ public class SqlLogDaoImpl implements SqlLogDao {
 
 		try {
 			JdbcTemplate jdbcTemplate = OracleConnectionManager.getInstance().getJdbcTemplate();
-			byte[] sqlTextBytes = jdbcTemplate.queryForObject(sqlText, new Object[] {id}, sqlLogTextMapper);
+			byte[] sqlTextBytes = jdbcTemplate.queryForObject(
+					sqlText,
+					new Object[] {id},
+					sqlLogTextMapper
+			);
 			if (sqlTextBytes != null && sqlTextBytes.length > 0) {
 				result = new String(sqlTextBytes, charsetName);
 			}
 		} catch (DataAccessException | UnsupportedEncodingException e) {
-			log.error("Не удалось извлечь данные V$SQL по идентификатору + " + id + ". SQL запрос: " + sqlText + " Исключение: ", e);
+			log.error(
+					"Не удалось извлечь данные V$SQL по идентификатору + " + id +
+							". SQL запрос: " + sqlText +
+							" Исключение: ", e
+			);
 		}
 		return result;
 	}
 
 	@Override
-	public List<PageableData> findAllRowsBySqlSubstring(String sqlSubstring, int startRownum, int endRownum) {
+	public List<PageableData> findAllRowsBySqlSubstring(
+			String sqlSubstring,
+			int startRownum,
+			int endRownum
+	) {
 		List<PageableData> rows = new ArrayList<>();
 
 		val sqlText = "\nselect \n" +

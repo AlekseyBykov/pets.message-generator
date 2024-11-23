@@ -3,10 +3,6 @@ package alekseybykov.pets.mg.core.coreconsts;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-/**
- * @author bykov.alexey
- * @since 13.06.2022
- */
 @AllArgsConstructor
 public enum EncodingScheme {
 

@@ -9,10 +9,6 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.io.InputStream;
 
-/**
- * @author bykov.alexey
- * @since 17.02.2021
- */
 public class GUIHelper {
 
 	public static void stylizeHtmlEditorKit(HTMLEditorKit htmlEditorKit) {
@@ -22,7 +18,12 @@ public class GUIHelper {
 		styleSheet.addRule("p {text-ident:20px; }");
 	}
 
-	public static JLabel buildLabelWithImage(String title, String pathToIcon, int width, int height) {
+	public static JLabel buildLabelWithImage(
+			String title,
+			String pathToIcon,
+			int width,
+			int height
+	) {
 		JLabel label = new JLabel(title);
 		label.setIcon(scaleImageIcon(pathToIcon, width, height));
 
@@ -33,15 +34,20 @@ public class GUIHelper {
 		return new ImageIcon(GUIHelper.class.getResource(pathToIcon));
 	}
 
-	public static ImageIcon scaleImageIcon(String pathToIcon, int width, int height) {
+	public static ImageIcon scaleImageIcon(
+			String pathToIcon,
+			int width,
+			int height
+	) {
 		ImageIcon imageIcon = getImageIconByPath(pathToIcon);
 		Image image = imageIcon.getImage();
 		Image scaledImage = image.getScaledInstance(width, height, Image.SCALE_SMOOTH);
 		return new ImageIcon(scaledImage);
 	}
 
-	public static JButton buildButton(int iconWidth, int iconHeight, String captionText,
-	                                  String tooltipText, String pathToIcon, ActionListener clickListener) {
+	public static JButton buildButton(
+			int iconWidth, int iconHeight, String captionText,
+			String tooltipText, String pathToIcon, ActionListener clickListener) {
 		JButton button = new JButton(captionText);
 
 		if (StringUtils.isNotEmpty(tooltipText)) {

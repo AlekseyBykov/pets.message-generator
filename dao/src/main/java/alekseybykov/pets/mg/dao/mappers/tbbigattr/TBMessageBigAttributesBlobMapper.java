@@ -15,18 +15,12 @@ import java.sql.Blob;
 import java.sql.ResultSet;
 import java.util.Arrays;
 
-/**
- * @author bykov.alexey
- * @since 04.07.2021
- */
 @Component
 public class TBMessageBigAttributesBlobMapper implements RowMapper<byte[]> {
 
 	@Override
 	@SneakyThrows
 	public byte[] mapRow(ResultSet resultSet, int rowNumber) {
-		// Данный буфер будет находиться в ОЗУ и передаваться в DAO для формирования отображаемого ОАГИС.
-		// Если размер запрашиваемого blob'а превышает TWO_MB, пользователю выдается сообщение.
 		var dataBuffer = new byte[BufferSizes.TWO_MB.getSize()];
 
 		int counter = -1;
@@ -35,22 +29,18 @@ public class TBMessageBigAttributesBlobMapper implements RowMapper<byte[]> {
 		Blob blobColumn = resultSet.getBlob("body");
 
 		InputStream blobInputStream = blobColumn.getBinaryStream();
-		while (NumberUtils.INTEGER_MINUS_ONE != (consumedByte = (byte) blobInputStream.read())) {
-			// Устанавливаем ограничение в TWO_MB.
-			// Если размер запрашиваемого blob'а превышает FIVE_MB, пользователю выдается сообщение.
+		while (-1 != (consumedByte = (byte) blobInputStream.read())) {
 			if (++counter > BufferSizes.TWO_MB.getSize() - 1) {
 				Arrays.fill(dataBuffer, (byte) 0);
-				val errorMessage = "Максимальный размер отображаемого файла составляет " + BufferSizes.TWO_MB.getName() + ".\n" +
-				                   "Размер запрашиваемого файла превышает максимальный.";
+				val errorMessage = "Максимальный размер отображаемого файла составляет "
+						+ BufferSizes.TWO_MB.getName() + ".\n" +
+						"Размер запрашиваемого файла превышает максимальный.";
 
 				return errorMessage.getBytes(StandardCharsets.UTF_8);
 			}
 
 			dataBuffer[counter] = consumedByte;
 		}
-
-		// Если размер файла менее TWO_MB, в буфере будут находиться "пустые байты" в конце,
-		// необходимо удалить их, иначе они будут отображаться в UI.
 		return ByteUtils.removeEmptyTrailingBytes(dataBuffer);
 	}
 }

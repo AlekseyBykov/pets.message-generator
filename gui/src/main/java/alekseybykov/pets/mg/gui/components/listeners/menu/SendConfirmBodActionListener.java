@@ -20,10 +20,6 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.nio.charset.StandardCharsets;
 
-/**
- * @author bykov.alexey
- * @since 26.02.2024
- */
 @Component
 public class SendConfirmBodActionListener implements ActionListener {
 
@@ -42,7 +38,7 @@ public class SendConfirmBodActionListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		val selectedRow = table.getSelectedRow();
-		if (selectedRow != NumberUtils.INTEGER_MINUS_ONE) {
+		if (selectedRow != -1) {
 
 			progressBar.setVisible(true);
 

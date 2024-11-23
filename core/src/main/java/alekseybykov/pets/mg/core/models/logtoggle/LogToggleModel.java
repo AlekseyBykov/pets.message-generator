@@ -4,10 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
 
-/**
- * @author bykov.alexey
- * @since 28.02.2024
- */
 @Component
 public class LogToggleModel {
 

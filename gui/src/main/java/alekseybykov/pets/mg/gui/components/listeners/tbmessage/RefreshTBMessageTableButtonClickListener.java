@@ -17,10 +17,6 @@ import java.awt.event.ActionListener;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * @author bykov.alexey
- * @since 14.03.2021
- */
 @Component
 public class RefreshTBMessageTableButtonClickListener implements ActionListener {
 

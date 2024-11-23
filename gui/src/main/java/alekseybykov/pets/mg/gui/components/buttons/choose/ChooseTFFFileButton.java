@@ -11,15 +11,11 @@ import javax.annotation.PostConstruct;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * @author bykov.alexey
- * @since 27.02.2024
- */
 @Component
 public class ChooseTFFFileButton extends JButton {
 
 	@Autowired
-	private ChooseTFFFileButtonClickListener chooseTFFFileButtonClickListener;
+	private ChooseTFFFileButtonClickListener listener;
 
 	@PostConstruct
 	private void postConstruct() {
@@ -27,6 +23,6 @@ public class ChooseTFFFileButton extends JButton {
 		setIcon(GUIHelper.scaleImageIcon(IconPaths.CHOOSE_XML_BTN_ICON.getPath(), 20, 20));
 		setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-		addActionListener(chooseTFFFileButtonClickListener);
+		addActionListener(listener);
 	}
 }

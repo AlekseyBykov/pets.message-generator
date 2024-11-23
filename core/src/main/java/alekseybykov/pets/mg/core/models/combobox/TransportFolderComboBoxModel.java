@@ -8,12 +8,10 @@ import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author bykov.alexey
- * @since 21.02.2024
- */
 @Component
-public class TransportFolderComboBoxModel extends DefaultComboBoxModel<TransportFolder> implements ComboBoxModel<TransportFolder> {
+public class TransportFolderComboBoxModel
+		extends DefaultComboBoxModel<TransportFolder>
+		implements ComboBoxModel<TransportFolder> {
 
 	@Getter
 	private List<TransportFolder> data = new ArrayList<>();

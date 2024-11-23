@@ -5,10 +5,6 @@ import alekseybykov.pets.mg.core.businessobjects.pageable.OracleConnection;
 
 import java.util.List;
 
-/**
- * @author bykov.alexey
- * @since 19.02.2024
- */
 public interface DBConnectionDao {
 
 	void saveNewConfig(OracleConnection newConfig);

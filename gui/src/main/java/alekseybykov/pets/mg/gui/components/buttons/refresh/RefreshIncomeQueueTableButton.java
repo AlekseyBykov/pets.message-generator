@@ -12,15 +12,11 @@ import javax.annotation.PostConstruct;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * @author bykov.alexey
- * @since 28.02.2024
- */
 @Component
 public class RefreshIncomeQueueTableButton extends JButton {
 
 	@Autowired
-	private RefreshIncomeQueueTableButtonClickListener refreshIncomeQueueTableButtonClickListener;
+	private RefreshIncomeQueueTableButtonClickListener listener;
 
 	@PostConstruct
 	private void postConstruct() {
@@ -29,6 +25,6 @@ public class RefreshIncomeQueueTableButton extends JButton {
 		setIcon(GUIHelper.scaleImageIcon(IconPaths.REFRESH_BTN_ICON.getPath(), 20, 20));
 		setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-		addActionListener(refreshIncomeQueueTableButtonClickListener);
+		addActionListener(listener);
 	}
 }

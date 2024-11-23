@@ -8,10 +8,6 @@ import java.sql.Blob;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- * @author bykov.alexey
- * @since 04.07.2021
- */
 @Component
 public class IncomeQueueBlobMapper implements RowMapper<byte[]> {
 

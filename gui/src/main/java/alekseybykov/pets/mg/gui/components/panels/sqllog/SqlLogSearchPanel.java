@@ -13,10 +13,6 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
-/**
- * @author bykov.alexey
- * @since 26.06.2022
- */
 @Component
 public class SqlLogSearchPanel extends JPanel {
 

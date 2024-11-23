@@ -5,10 +5,6 @@ import alekseybykov.pets.mg.core.businessobjects.pageable.OracleConnection;
 
 import java.util.List;
 
-/**
- * @author bykov.alexey
- * @since 26.06.2021
- */
 public interface DBConnectionService {
 
 	void addNewConfig(OracleConnection newConfig);

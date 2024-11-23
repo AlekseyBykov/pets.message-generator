@@ -8,15 +8,14 @@ import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author bykov.alexey
- * @since 01.05.2016
- */
 @Component
 public class AttachmentFileListTableModel extends AbstractTableModel {
 
 	private static final String[] COLUMN_NAMES = {
-		"Имя файла вложения (редактируемое поле)", "Content type (редактируемое поле)", "Путь к файлу", "Размер файла (байт)"
+			"Имя файла вложения (редактируемое поле)",
+			"Content type (редактируемое поле)",
+			"Путь к файлу",
+			"Размер файла (байт)"
 	};
 
 	@Getter

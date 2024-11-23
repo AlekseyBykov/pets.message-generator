@@ -12,10 +12,6 @@ import java.io.File;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 
-/**
- * @author bykov.alexey
- * @since 07.07.2021
- */
 @Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class SingleInstanceChecker {

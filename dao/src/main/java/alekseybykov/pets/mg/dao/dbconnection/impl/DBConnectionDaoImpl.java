@@ -20,10 +20,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author bykov.alexey
- * @since 19.02.2024
- */
 @Slf4j
 @Repository
 public class DBConnectionDaoImpl implements DBConnectionDao {
@@ -43,7 +39,9 @@ public class DBConnectionDaoImpl implements DBConnectionDao {
 				@Override
 				public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
 					PreparedStatement statement = connection.prepareStatement(
-							"\ninsert into message_generator.db_connections(name, url, driverClassName, user, password, active) values (?, ?, ?, ?, ?, ?)\n\n",
+							"\ninsert into message_generator.db_connections(" +
+									"name, url, driverClassName, user, password, active" +
+									") values (?, ?, ?, ?, ?, ?)\n\n",
 							Statement.RETURN_GENERATED_KEYS);
 					statement.setString(1, newConfig.getName());
 					statement.setString(2, newConfig.getUrl());
@@ -63,7 +61,8 @@ public class DBConnectionDaoImpl implements DBConnectionDao {
 	@Override
 	public List<PageableData> fetchAllConfigs() {
 		List<PageableData> configs = new ArrayList<>();
-		val sqlText = "\nselect active, name, url, driverClassName, user, password from message_generator.db_connections\n" +
+		val sqlText = "\nselect active, name, url, driverClassName, user, password " +
+				"from message_generator.db_connections\n" +
 		              "order by name asc\n\n";
 		try {
 			configs = jdbcTemplate.query(sqlText, new OracleConnectionRowMapper());

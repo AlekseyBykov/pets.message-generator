@@ -8,10 +8,6 @@ import org.springframework.stereotype.Component;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- * @author bykov.alexey
- * @since 04.07.2021
- */
 @Component
 public class IncomeQueueRowMapper implements RowMapper<PageableData> {
 

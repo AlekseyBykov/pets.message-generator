@@ -11,10 +11,6 @@ import javax.annotation.PostConstruct;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * @author bykov.alexey
- * @since 23.10.2023
- */
 @Component
 public class ServerLoggerView extends JPanel implements ServerLogObserver {
 

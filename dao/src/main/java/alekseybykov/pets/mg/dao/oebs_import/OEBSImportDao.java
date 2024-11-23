@@ -7,10 +7,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-/**
- * @author bykov.alexey
- * @since 08.03.2021
- */
 @Component
 public interface OEBSImportDao {
 

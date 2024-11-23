@@ -6,13 +6,6 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-/**
- * XML файл OAGIS. В отличие от {@link OAGISMessage}, представляет собой
- * сущность ОС, файл на диске.
- *
- * @author bykov.alexey
- * @since 16.02.2024
- */
 @Getter
 @Setter
 @EqualsAndHashCode
